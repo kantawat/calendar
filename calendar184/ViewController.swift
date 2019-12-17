@@ -9,14 +9,43 @@
 
 import UIKit
 import KDCalendar
+import Firebase
 
 class ViewController: UIViewController , CalendarViewDataSource{
     
     @IBOutlet weak var calendarView: CalendarView!
+    var refDatabase: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let style = CalendarView.Style()
+    
+        refDatabase = Database.database().reference()
+//        self.refDatabase.child("users/username").setValue("Youn")
         
+//        refDatabase.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user valu"e
+//            let value = snapshot.value as? NSDictionary
+//            let username = value?["username"] as? String ?? ""
+//
+//            print("Username : "+username )
+//
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+        
+        let startDay = "05-02-2019 05:04:00"
+        let endDay = "24-01-2020 00:00:00"
+        
+       
+        let boolday = NSDate().isBetweeen(date: startDay.toDateTime(), andDate: endDay.toDateTime())
+        
+        print("date : " + boolday.description ?? "none" )
+        
+        
+        
+        
+        let style = CalendarView.Style()
+
         
         style.cellShape                = .bevel(8.0)
         style.cellColorDefault         = UIColor.clear
@@ -94,4 +123,11 @@ class ViewController: UIViewController , CalendarViewDataSource{
     }
     
     
+    
+    
+    
 }
+
+
+
+
