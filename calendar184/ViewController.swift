@@ -33,13 +33,17 @@ class ViewController: UIViewController , CalendarViewDataSource{
 //            print(error.localizedDescription)
 //        }
         
-        let startDay = "05-02-2019 05:04:00"
-        let endDay = "24-01-2020 00:00:00"
-        
-       
-        let boolday = NSDate().isBetweeen(date: startDay.toDateTime(), andDate: endDay.toDateTime())
-        
-        print("date : " + boolday.description ?? "none" )
+//        let startDay = "05-02-2019 05:04:00"
+//        let endDay = "24-01-2020 00:00:00"
+//
+//
+//        let boolday = NSDate().isBetweeen(date: startDay.toDateTime(), andDate: endDay.toDateTime())
+//
+//        print("date : " + boolday.description ?? "none" )
+//        print("Year : " + chineseCalendar.detailRat.nameYear )
+//        for month in chineseCalendar.detailRat.arrDetailMonth {
+//            print("Month : \(month.nameMonth) Amount : \(month.amountDay)")
+//        }
         
         
         
@@ -92,20 +96,21 @@ class ViewController: UIViewController , CalendarViewDataSource{
     func startDate() -> Date {
         
         var dateComponents = DateComponents()
-        dateComponents.month = -12
+        dateComponents.month = -10
         
         let today = Date()
         
         let threeMonthsAgo = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
         
         return threeMonthsAgo
+        
     }
     
     func endDate() -> Date {
         
         var dateComponents = DateComponents()
         
-        dateComponents.month = 12
+        dateComponents.month = 145
         let today = Date()
         
         let twoYearsFromNow = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
