@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		586B3B9D8C0CDC3C4C77DC1B /* Pods_calendar184_calendar184UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2AD3B2778B9B5D2D967FCE /* Pods_calendar184_calendar184UITests.framework */; };
 		CA1AA253DE291D5D070ABF09 /* Pods_calendar184.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF4F303AFE1F5A1FA30555 /* Pods_calendar184.framework */; };
 		E56DD61023A7E2DF0020FB86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E56DD60F23A7E2DF0020FB86 /* GoogleService-Info.plist */; };
+		E56DD61223A9335C0020FB86 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DD61123A9335C0020FB86 /* NSDateExtension.swift */; };
+		E56DD61423AA629E0020FB86 /* dataStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DD61323AA629D0020FB86 /* dataStatic.swift */; };
 		E5F3E9CF239FDA9A003D9B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9CE239FDA9A003D9B71 /* AppDelegate.swift */; };
 		E5F3E9D1239FDA9A003D9B71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9D0239FDA9A003D9B71 /* ViewController.swift */; };
 		E5F3E9D4239FDA9A003D9B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3E9D2239FDA9A003D9B71 /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 		D02F29DA7AB040C59F7DAD27 /* Pods-calendar184.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendar184.debug.xcconfig"; path = "Target Support Files/Pods-calendar184/Pods-calendar184.debug.xcconfig"; sourceTree = "<group>"; };
 		DD3C0EADCE3BF25AAAA31B18 /* Pods-calendar184-calendar184UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendar184-calendar184UITests.debug.xcconfig"; path = "Target Support Files/Pods-calendar184-calendar184UITests/Pods-calendar184-calendar184UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E56DD60F23A7E2DF0020FB86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E56DD61123A9335C0020FB86 /* NSDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		E56DD61323AA629D0020FB86 /* dataStatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataStatic.swift; sourceTree = "<group>"; };
 		E5E3A42D066609515993184B /* Pods-calendar184.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendar184.release.xcconfig"; path = "Target Support Files/Pods-calendar184/Pods-calendar184.release.xcconfig"; sourceTree = "<group>"; };
 		E5F3E9CB239FDA9A003D9B71 /* calendar184.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calendar184.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F3E9CE239FDA9A003D9B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +115,6 @@
 				04B5C6B93625EF3082608EBC /* Pods-calendar184Tests.debug.xcconfig */,
 				C2854BB5930538E5CB02F23C /* Pods-calendar184Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -147,6 +150,8 @@
 				E5F3E9D7239FDA9F003D9B71 /* LaunchScreen.storyboard */,
 				E5F3E9DA239FDA9F003D9B71 /* Info.plist */,
 				E56DD60F23A7E2DF0020FB86 /* GoogleService-Info.plist */,
+				E56DD61123A9335C0020FB86 /* NSDateExtension.swift */,
+				E56DD61323AA629D0020FB86 /* dataStatic.swift */,
 			);
 			path = calendar184;
 			sourceTree = "<group>";
@@ -409,6 +414,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56DD61223A9335C0020FB86 /* NSDateExtension.swift in Sources */,
+				E56DD61423AA629E0020FB86 /* dataStatic.swift in Sources */,
 				E5F3E9D1239FDA9A003D9B71 /* ViewController.swift in Sources */,
 				E5F3E9CF239FDA9A003D9B71 /* AppDelegate.swift in Sources */,
 			);
@@ -595,7 +602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kantawat.calendar184;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -614,7 +621,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kantawat.calendar184;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
