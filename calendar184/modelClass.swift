@@ -29,6 +29,8 @@ class arrSpacialDay{
 class spacialDays{
     static var arrDetailMonth1 = arrSpacialDay.init (arrSpacialDay: [
         spacialDay.init(name: "วันตรุษจีน ,ชุนเจี๋ย (春节zวันตรุษจีน ,ชุนเจี๋ย (春节)", day: 1),
+        spacialDay.init(name: "วันไหว้รับเจ้ากลับจากสวรรค์ ไหว้รับเหล่าเอี๊ยเหลาะที ,ซิ้งเลาะที (神下天)", day: 4),
+        spacialDay.init(name: "วันไหว้รับเจ้ากลับจากสวรรค์ ไหว้รับเหล่าเอี๊ยเหลาะที ,ซิ้งเลาะที (神下天)", day: 4),
         spacialDay.init(name: "วันไหว้รับเจ้ากลับจากสวรรค์ ไหว้รับเหล่าเอี๊ยเหลาะที ,ซิ้งเลาะที (神下天)", day: 4)],nameMonth: 1)
     static var arrDetailMonth2 = arrSpacialDay.init (arrSpacialDay:[
         spacialDay.init(name: "วันตรุษจีน ,ชุนเจี๋ย (春节zวันตรุษจีน ,ชุนเจี๋ย (春节)", day: 1),

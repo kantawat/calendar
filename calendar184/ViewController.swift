@@ -14,7 +14,9 @@ import PopupDialog
 
 class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDelegate{
     
+
     
+    @IBOutlet weak var labelHeader: UILabel!
     
     @IBOutlet weak var calendarView: CalendarView!
     var refDatabase: DatabaseReference!
@@ -27,13 +29,13 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
             for (indexMouth, valueMonth) in dataYear.arrDetailMonth.enumerated() {
                     print("start day : \(dateYear)  ")
                     var arr = spacialDays.arrDetailMonths().filter {
-                        $0.nameMonth == indexMouth + 1
+                        $0.nameMonth == Int(valueMonth.nameMonth)
                     }
                     if !arr.isEmpty{
                         for v in arr[0].arrSpacialDay{
                             let date = dateYear.addDays(v.day) as NSDate
                             print("day : \(v.day) day : \(date)")
-//                            self.calendarView.addEvent(v.name, date: date as Date)
+                            self.calendarView.addEvent(v.name, date: date as Date)
                             print("name : \(v.name) day : \(date)")
                         }
                         print("arr month : \(arr[0].nameMonth) amount : \(valueMonth.amountDay) ")
@@ -85,20 +87,45 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         
         calendarView.backgroundColor = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1.0)
         
+        
+        
+    }
+    
+    
+    
+    @IBAction func setListDay(_ sender: UIButton) {
+
+
+        let today = NSDate()
+
+        var arr = spacialDays.arrDetailMonths().filter {
+            $0.nameMonth == today.getMonth()
+        }
+        var str = ""
+        for v in arr[0].arrSpacialDay{
+            str +=  " - Day : \(v.day)  Event : \(v.name) \n"
+        }
+
+
+        let popup = PopupDialog(title: "month \(today.getMonth())", message: str)
+        self.present(popup, animated: true, completion: nil)
+
+
+
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
-        #if KDCALENDAR_EVENT_MANAGER_ENABLED
-        self.calendarView.loadEvents() { error in
-            if error != nil {
-                let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
-                let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        #endif
+//        #if KDCALENDAR_EVENT_MANAGER_ENABLED
+//        self.calendarView.loadEvents() { error in
+//            if error != nil {
+//                let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
+//                let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
+//        #endif
         self.calendarView.setDisplayDate(today, animated: false)
         
     }
@@ -146,9 +173,10 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         for event in events {
           str +=  " \(event.title)"
         }
+        self.labelHeader.text = str
         
-        let popup = PopupDialog(title: "  Event " , message: str)
-        self.present(popup, animated: true, completion: nil)
+//        let popup = PopupDialog(title: "  Event " , message: str)
+//        self.present(popup, animated: true, completion: nil)
         
         
     }
