@@ -11,6 +11,8 @@ target 'calendar184' do
 
     pod 'Firebase/Database'
     pod 'KDCalendar', '~> 1.8.2'
+    pod 'PopupDialog', '~> 1.1'
+    
   target 'calendar184Tests' do
     inherit! :search_paths
     # Pods for testing

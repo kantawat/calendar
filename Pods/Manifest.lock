@@ -1,4 +1,5 @@
 PODS:
+  - DynamicBlurView (4.0.0)
   - Firebase/CoreOnly (6.13.0):
     - FirebaseCore (= 6.4.0)
   - Firebase/Database (6.13.0):
@@ -37,13 +38,17 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
 
 DEPENDENCIES:
   - Firebase/Database
   - KDCalendar (~> 1.8.2)
+  - PopupDialog (~> 1.1)
 
 SPEC REPOS:
   trunk:
+    - DynamicBlurView
     - Firebase
     - FirebaseAuthInterop
     - FirebaseCore
@@ -56,8 +61,10 @@ SPEC REPOS:
     - KDCalendar
     - leveldb-library
     - nanopb
+    - PopupDialog
 
 SPEC CHECKSUMS:
+  DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 307ea2508df730c5865334e41965bd9ea344b0e5
@@ -70,7 +77,8 @@ SPEC CHECKSUMS:
   KDCalendar: 114f8d2dd091608c2d8db7d5783c96a4c4a60398
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
 
-PODFILE CHECKSUM: 2c1c5913ce67e3cc2da8066b6208f899eb98f658
+PODFILE CHECKSUM: a7838128a1d54b020fc5b7015ada93738dd1ec40
 
 COCOAPODS: 1.8.4

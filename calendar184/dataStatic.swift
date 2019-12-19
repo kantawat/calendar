@@ -34,6 +34,7 @@ class detailYear{
 }
 
 class chineseCalendar {
+    static var startDate = "05-02-2019"
     
     static var detailPig = detailYear(nameYear: "Pig",nameThaiYear: "ปีกุน",amountMonth: 12,amountDays: 354,arrDetailMonth: [
         detailMonth.init(nameMonth:"1",amountDay:30),

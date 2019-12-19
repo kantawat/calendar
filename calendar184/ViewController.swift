@@ -10,42 +10,39 @@
 import UIKit
 import KDCalendar
 import Firebase
+import PopupDialog
 
-class ViewController: UIViewController , CalendarViewDataSource{
+class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDelegate{
+    
+    
     
     @IBOutlet weak var calendarView: CalendarView!
     var refDatabase: DatabaseReference!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        refDatabase = Database.database().reference()
-//        self.refDatabase.child("users/username").setValue("Youn")
-        
-//        refDatabase.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user valu"e
-//            let value = snapshot.value as? NSDictionary
-//            let username = value?["username"] as? String ?? ""
-//
-//            print("Username : "+username )
-//
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-        
-//        let startDay = "05-02-2019 05:04:00"
-//        let endDay = "24-01-2020 00:00:00"
-//
-//
-//        let boolday = NSDate().isBetweeen(date: startDay.toDateTime(), andDate: endDay.toDateTime())
-//
-//        print("date : " + boolday.description ?? "none" )
-//        print("Year : " + chineseCalendar.detailRat.nameYear )
-//        for month in chineseCalendar.detailRat.arrDetailMonth {
-//            print("Month : \(month.nameMonth) Amount : \(month.amountDay)")
-//        }
-        
-        
+        let dataYears = chineseCalendar.detailYears()
+        var dateYear = chineseCalendar.startDate.toDateTime()
+        for dataYear in dataYears {
+            for (indexMouth, valueMonth) in dataYear.arrDetailMonth.enumerated() {
+                    print("start day : \(dateYear)  ")
+                    var arr = spacialDays.arrDetailMonths().filter {
+                        $0.nameMonth == indexMouth + 1
+                    }
+                    if !arr.isEmpty{
+                        for v in arr[0].arrSpacialDay{
+                            let date = dateYear.addDays(v.day) as NSDate
+                            print("day : \(v.day) day : \(date)")
+//                            self.calendarView.addEvent(v.name, date: date as Date)
+                            print("name : \(v.name) day : \(date)")
+                        }
+                        print("arr month : \(arr[0].nameMonth) amount : \(valueMonth.amountDay) ")
+                        
+                    }
+                
+                dateYear = dateYear.addDays(valueMonth.amountDay) as NSDate
+                }
+        }
         
         
         let style = CalendarView.Style()
@@ -79,6 +76,8 @@ class ViewController: UIViewController , CalendarViewDataSource{
         
         calendarView.dataSource = self
         
+        calendarView.delegate = self
+        
         calendarView.direction = .horizontal
         calendarView.multipleSelectionEnable = false
         calendarView.marksWeekends = true
@@ -90,7 +89,18 @@ class ViewController: UIViewController , CalendarViewDataSource{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
+        #if KDCALENDAR_EVENT_MANAGER_ENABLED
+        self.calendarView.loadEvents() { error in
+            if error != nil {
+                let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
+                let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        #endif
         self.calendarView.setDisplayDate(today, animated: false)
+        
     }
     
     func startDate() -> Date {
@@ -122,11 +132,38 @@ class ViewController: UIViewController , CalendarViewDataSource{
     
     func headerString(_ date: Date) -> String? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "dd-MM-yyyy"
         let myString = formatter.string(from: date as Date)
         return myString
     }
     
+    func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
+    
+    }
+    
+    func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
+        var str = ""
+        for event in events {
+          str +=  " \(event.title)"
+        }
+        
+        let popup = PopupDialog(title: "  Event " , message: str)
+        self.present(popup, animated: true, completion: nil)
+        
+        
+    }
+    
+    func calendar(_ calendar: CalendarView, canSelectDate date: Date) -> Bool {
+        return true
+    }
+    
+    func calendar(_ calendar: CalendarView, didDeselectDate date: Date) {
+        
+    }
+    
+    func calendar(_ calendar: CalendarView, didLongPressDate date: Date, withEvents events: [CalendarEvent]?) {
+        
+    }
     
     
     
