@@ -14,35 +14,15 @@ import PopupDialog
 
 class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDelegate{
     
-    
+    var thisMonth = 0
+    @IBOutlet weak var showTitle: UILabel!
     
     @IBOutlet weak var calendarView: CalendarView!
     var refDatabase: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        let dataYears = chineseCalendar.detailYears()
-        var dateYear = chineseCalendar.startDate.toDateTime()
-        for dataYear in dataYears {
-            for (indexMouth, valueMonth) in dataYear.arrDetailMonth.enumerated() {
-                    print("start day : \(dateYear)  ")
-                    var arr = spacialDays.arrDetailMonths().filter {
-                        $0.nameMonth == indexMouth + 1
-                    }
-                    if !arr.isEmpty{
-                        for v in arr[0].arrSpacialDay{
-                            let date = dateYear.addDays(v.day) as NSDate
-                            print("day : \(v.day) day : \(date)")
-//                            self.calendarView.addEvent(v.name, date: date as Date)
-                            print("name : \(v.name) day : \(date)")
-                        }
-                        print("arr month : \(arr[0].nameMonth) amount : \(valueMonth.amountDay) ")
-                        
-                    }
-                
-                dateYear = dateYear.addDays(valueMonth.amountDay) as NSDate
-                }
-        }
+       
         
         
         let style = CalendarView.Style()
@@ -85,20 +65,88 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         
         calendarView.backgroundColor = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1.0)
         
+        let calendar = Calendar.current
+        var dateYear = chineseCalendar.startDate.toDateTime()
+        // Replace the hour (time) of both dates with 00:00
+        let date1 = calendar.startOfDay(for: Date())
+        let date2 = calendar.startOfDay(for: dateYear as Date)
+        
+        var diffDate = calendar.dateComponents([.day], from: date1, to: date2)
+        let dataYears = chineseCalendar.detailYears()
+        var chekDiff = false
+        var diffInt = diffDate.day ?? 0
+        for dataYear in dataYears {
+            if (diffInt - dataYear.amountDays) > 0{
+                diffInt -= dataYear.amountDays
+            } else if ((diffInt - dataYear.amountDays) == 0){
+                self.thisMonth = 12
+                
+            } else if ((diffInt - dataYear.amountDays) < dataYear.amountDays){
+               chekDiff = true
+                
+            }else   {
+                chekDiff = true
+            }
+            
+            for (indexMouth, valueMonth) in dataYear.arrDetailMonth.enumerated() {
+                print("start day : \(dateYear)  ")
+                if (diffInt - valueMonth.amountDay) > 0{
+                    diffInt -= valueMonth.amountDay
+                } else {
+                    thisMonth = Int(valueMonth.nameMonth)!
+                }
+                
+                var arr = spacialDays.arrDetailMonths().filter {
+                    $0.nameMonth == Int(valueMonth.nameMonth)
+                }
+                if !arr.isEmpty{
+                    for v in arr[0].arrSpacialDay{
+                        let date = dateYear.addDays(v.day) as NSDate
+                        print("day : \(v.day) day : \(date)")
+                        self.calendarView.addEvent(v.name, date: date as Date)
+                        print("name : \(v.name) day : \(date)")
+                    }
+                    print("arr month : \(arr[0].nameMonth) amount : \(valueMonth.amountDay) ")
+                    
+                }
+                
+                dateYear = dateYear.addDays(valueMonth.amountDay) as NSDate
+            }
+        }
+
     }
+    
+    @IBAction func listShow(_ sender: UIButton) {
+        var str = ""
+        print("month \(self.thisMonth)")
+        var arr = spacialDays.arrDetailMonths().filter {
+            $0.nameMonth == self.thisMonth
+        }
+        if !arr.isEmpty{
+            for v in arr[0].arrSpacialDay{
+            str +=  " - \(v.name) \n"
+            }
+        
+        }
+                let popup = PopupDialog(title: "  Event " , message: str)
+                self.present(popup, animated: true, completion: nil)
+        
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
-        #if KDCALENDAR_EVENT_MANAGER_ENABLED
-        self.calendarView.loadEvents() { error in
-            if error != nil {
-                let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
-                let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        #endif
+//        #if KDCALENDAR_EVENT_MANAGER_ENABLED
+//        self.calendarView.loadEvents() { error in
+//            if error != nil {
+//                let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
+//                let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//            }
+//        }
+//        #endif
         self.calendarView.setDisplayDate(today, animated: false)
         
     }
@@ -106,7 +154,7 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     func startDate() -> Date {
         
         var dateComponents = DateComponents()
-        dateComponents.month = -10
+        dateComponents.month = -12
         
         let today = Date()
         
@@ -146,10 +194,12 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         for event in events {
           str +=  " \(event.title)"
         }
-        
-        let popup = PopupDialog(title: "  Event " , message: str)
-        self.present(popup, animated: true, completion: nil)
-        
+        self.showTitle.text = str
+        self.showTitle.lineBreakMode = .byWordWrapping
+        self.showTitle.numberOfLines = 3
+//        let popup = PopupDialog(title: "  Event " , message: str)
+//        self.present(popup, animated: true, completion: nil)
+//
         
     }
     

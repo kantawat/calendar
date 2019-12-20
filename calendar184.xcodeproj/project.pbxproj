@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		586B3B9D8C0CDC3C4C77DC1B /* Pods_calendar184_calendar184UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2AD3B2778B9B5D2D967FCE /* Pods_calendar184_calendar184UITests.framework */; };
 		CA1AA253DE291D5D070ABF09 /* Pods_calendar184.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF4F303AFE1F5A1FA30555 /* Pods_calendar184.framework */; };
+		E54DF83C23AD0AF4006FB440 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54DF83B23AD0AF4006FB440 /* GoogleService-Info.plist */; };
 		E56DD61223A9335C0020FB86 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DD61123A9335C0020FB86 /* NSDateExtension.swift */; };
 		E56DD61423AA629E0020FB86 /* dataStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DD61323AA629D0020FB86 /* dataStatic.swift */; };
 		E5F3E9CF239FDA9A003D9B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9CE239FDA9A003D9B71 /* AppDelegate.swift */; };
@@ -19,7 +20,6 @@
 		E5F3E9E4239FDA9F003D9B71 /* calendar184Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9E3239FDA9F003D9B71 /* calendar184Tests.swift */; };
 		E5F3E9EF239FDA9F003D9B71 /* calendar184UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9EE239FDA9F003D9B71 /* calendar184UITests.swift */; };
 		F1ACC7FCFC5BA9439F0DC04D /* Pods_calendar184Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDA3876B802B5D129667980 /* Pods_calendar184Tests.framework */; };
-		FF103B0823AA86EA00D4FFC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF103B0723AA86EA00D4FFC9 /* GoogleService-Info.plist */; };
 		FF103B0A23AA9F2A00D4FFC9 /* modelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF103B0923AA9F2A00D4FFC9 /* modelClass.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +49,7 @@
 		C2854BB5930538E5CB02F23C /* Pods-calendar184Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendar184Tests.release.xcconfig"; path = "Target Support Files/Pods-calendar184Tests/Pods-calendar184Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D02F29DA7AB040C59F7DAD27 /* Pods-calendar184.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendar184.debug.xcconfig"; path = "Target Support Files/Pods-calendar184/Pods-calendar184.debug.xcconfig"; sourceTree = "<group>"; };
 		DD3C0EADCE3BF25AAAA31B18 /* Pods-calendar184-calendar184UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendar184-calendar184UITests.debug.xcconfig"; path = "Target Support Files/Pods-calendar184-calendar184UITests/Pods-calendar184-calendar184UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E54DF83B23AD0AF4006FB440 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E56DD61123A9335C0020FB86 /* NSDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		E56DD61323AA629D0020FB86 /* dataStatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataStatic.swift; sourceTree = "<group>"; };
 		E5E3A42D066609515993184B /* Pods-calendar184.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendar184.release.xcconfig"; path = "Target Support Files/Pods-calendar184/Pods-calendar184.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		E5F3E9EA239FDA9F003D9B71 /* calendar184UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calendar184UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F3E9EE239FDA9F003D9B71 /* calendar184UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendar184UITests.swift; sourceTree = "<group>"; };
 		E5F3E9F0239FDA9F003D9B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF103B0723AA86EA00D4FFC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF103B0923AA9F2A00D4FFC9 /* modelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,9 +147,9 @@
 			children = (
 				E5F3E9CE239FDA9A003D9B71 /* AppDelegate.swift */,
 				E5F3E9D0239FDA9A003D9B71 /* ViewController.swift */,
-				FF103B0723AA86EA00D4FFC9 /* GoogleService-Info.plist */,
 				E5F3E9D2239FDA9A003D9B71 /* Main.storyboard */,
 				E5F3E9D5239FDA9F003D9B71 /* Assets.xcassets */,
+				E54DF83B23AD0AF4006FB440 /* GoogleService-Info.plist */,
 				E5F3E9D7239FDA9F003D9B71 /* LaunchScreen.storyboard */,
 				E5F3E9DA239FDA9F003D9B71 /* Info.plist */,
 				E56DD61123A9335C0020FB86 /* NSDateExtension.swift */,
@@ -287,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5F3E9D9239FDA9F003D9B71 /* LaunchScreen.storyboard in Resources */,
-				FF103B0823AA86EA00D4FFC9 /* GoogleService-Info.plist in Resources */,
+				E54DF83C23AD0AF4006FB440 /* GoogleService-Info.plist in Resources */,
 				E5F3E9D6239FDA9F003D9B71 /* Assets.xcassets in Resources */,
 				E5F3E9D4239FDA9A003D9B71 /* Main.storyboard in Resources */,
 			);
