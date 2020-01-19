@@ -28,6 +28,7 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         for dataYear in dataYears {
             for (indexMouth, valueMonth) in dataYear.arrDetailMonth.enumerated() {
                     print("start day : \(dateYear)  ")
+                if dataYear.nameYear == "2"{
                     var arr = spacialDays.arrDetailMonths().filter {
                         $0.nameMonth == Int(valueMonth.nameMonth)
                     }
@@ -41,6 +42,8 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
                         print("arr month : \(arr[0].nameMonth) amount : \(valueMonth.amountDay) ")
                         
                     }
+                }
+                
                 
                 dateYear = dateYear.addDays(valueMonth.amountDay) as NSDate
                 }

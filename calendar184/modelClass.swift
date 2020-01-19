@@ -32,14 +32,14 @@ class spacialDays{
         spacialDay.init(name: "วันตรุษจีน ,ชุนเจี๋ย (春节)", day: 1),
         spacialDay.init(name: "วันพระจีน ,วันชิวอิก (日一初)", day: 1),
         spacialDay.init(name: "วันไหว้รับเจ้ากลับจากสวรรค์ ไหว้รับเหล่าเอี๊ยเหลาะที ,ซิ้งเลาะที (神下天)", day: 4),
-        spacialDay.init(name: "คล้ายวันเกิดเทพเจ้าไฉ่ซิ้งเอี้ย ปางบู๊ ,จ้าวกงหมิง (赵公明)", day: 5),
-        spacialDay.init(name: "คล้ายวันสมภพองค์เทพยดาฟ้าดิน หยี้วหวังต้าตี้ ,ทีกงแซ (天公生)", day: 9),
-        spacialDay.init(name: "ไหว้เทศกาลชาวนา-เทศกาลโคมไฟ ,ง่วงเซียวโจ่ย (元宵节)", day: 15),
-        spacialDay.init(name: "วันพระจีน ,วันชิวอิก (日一初)", day: 15)],nameMonth: 1)
+        spacialDay.init(name: "วันคล้ายวันเกิดเทพเจ้าไฉ่ซิ้งเอี้ย ปางบู๊ ,จ้าวกงหมิง (赵公明)", day: 5),
+        spacialDay.init(name: "วันคล้ายวันสมภพองค์เทพยดาฟ้าดิน หยี้วหวังต้าตี้ ,ทีกงแซ (天公生)", day: 9),
+        spacialDay.init(name: "วันไหว้เทศกาลชาวนา-เทศกาลโคมไฟ ,ง่วงเซียวโจ่ย (元宵节)", day: 15),
+        spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 15)],nameMonth: 1)
     static var arrDetailMonth2 = arrSpacialDay.init (arrSpacialDay:[
         spacialDay.init(name: "วันพระจีน ,วันชิวอิก (日一初)", day: 1),
         spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 15),
-        spacialDay.init(name: "คล้ายวันประสูติพระโพธิสัตว์กวนอิม", day: 19)],nameMonth: 2)
+        spacialDay.init(name: "วันคล้ายวันประสูติพระโพธิสัตว์กวนอิม", day: 19)],nameMonth: 2)
     static var arrDetailMonth3 = arrSpacialDay.init (arrSpacialDay:[
         spacialDay.init(name: "วันพระจีน ,วันชิวอิก (日一初)", day: 1),
         spacialDay.init(name: "คล้ายวันประสูติองค์เซวียนเทียนสร้างตี้ ,เฮียงเทียงเสี่ยงตี่ (玄天上帝)", day: 3),
@@ -67,10 +67,11 @@ class spacialDays{
         spacialDay.init(name: "คล้ายวันสมภพองค์ไท้สร้างเหลาจวิน (太上老君)", day: 1),
         spacialDay.init(name: "วันพระจีน ,วันชิวอิก (日一初)", day: 1),
         spacialDay.init(name: "วันสารทจีน ,จงหยวนเจี๋ย (中元节)", day: 15),
-        spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 22),
+        spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 15),
+        spacialDay.init(name: "คล้ายวันเกิดเทพเจ้าไฉ่ซิ้งเอี้ย ปางบุ๋น ,ปี่กาน (比干)", day: 22),
         spacialDay.init(name: "คล้ายวันเกิดเจ้าแม่ลิ้มกอเหนี่ยว", day: 27),], nameMonth: 7)
     static var arrDetailMonth8 = arrSpacialDay.init (arrSpacialDay:[
-        spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 1),
+        spacialDay.init(name: "วันพระจีน ,วันชิวอิก (日一初)", day: 1),
         spacialDay.init(name: "วันไหว้พระจันทร์ ,จงชิวเจี๋ย (中秋节)", day: 15),
         spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 15)], nameMonth: 8)
     static var arrDetailMonth9 = arrSpacialDay.init (arrSpacialDay:[
@@ -95,6 +96,7 @@ class spacialDays{
         spacialDay.init(name: "วันไหว้ขนมบัวลอย ,ตังโจ่ย (冬至)", day: 7),
         spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 15),], nameMonth: 11)
     static var arrDetailMonth12 = arrSpacialDay.init (arrSpacialDay:[
+        spacialDay.init(name: "วันพระจีน ,วันชิวอิก (日一初)", day: 1),
         spacialDay.init(name: "วันพระจีน ,วันจับโหงว (日五十)", day: 15),
         spacialDay.init(name: "ไหว้ส่งเสด็จเจ้าขึ้นสวรรค์ ,เซ้งเจี่ยที (神上天)", day: 24),
         spacialDay.init(name: "วันไหว้สิ้นปี ,ก๊วยนี้โจ่ย (过年)", day: 30),
