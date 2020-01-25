@@ -11,22 +11,25 @@ import UIKit
 import KDCalendar
 import Firebase
 import PopupDialog
+import EventKit
 
 class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDelegate{
     
     var thisMonth = 0
+    var spacialDayList = [spacialDayFire]()
+    var chineseCalendarList = [chineseCalendarFire]()
+    var ref: DatabaseReference!
     @IBOutlet weak var showTitle: UILabel!
     
     @IBOutlet weak var calendarView: CalendarView!
     var refDatabase: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-       
+        
         
         
         let style = CalendarView.Style()
-
+        
         
         style.cellShape                = .bevel(8.0)
         style.cellColorDefault         = UIColor.clear
@@ -65,71 +68,100 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         
         calendarView.backgroundColor = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1.0)
         
-        let calendar = Calendar.current
-        var dateYear = chineseCalendar.startDate.toDateTime()
-        // Replace the hour (time) of both dates with 00:00
-        let date1 = calendar.startOfDay(for: Date())
-        let date2 = calendar.startOfDay(for: dateYear as Date)
-        
-        var diffDate = calendar.dateComponents([.day], from: date1, to: date2)
-        let dataYears = chineseCalendar.detailYears()
-        var chekDiff = false
-        var diffInt = diffDate.day ?? 0
-        for dataYear in dataYears {
-            if (diffInt - dataYear.amountDays) > 0{
-                diffInt -= dataYear.amountDays
-            } else if ((diffInt - dataYear.amountDays) == 0){
-                self.thisMonth = 12
-                
-            } else if ((diffInt - dataYear.amountDays) < dataYear.amountDays){
-               chekDiff = true
-                
-            }else   {
-                chekDiff = true
-            }
-            
-            for (indexMouth, valueMonth) in dataYear.arrDetailMonth.enumerated() {
-                print("start day : \(dateYear)  ")
-                if (diffInt - valueMonth.amountDay) > 0{
-                    diffInt -= valueMonth.amountDay
-                } else {
-                    thisMonth = Int(valueMonth.nameMonth)!
+        self.ref = Database.database().reference()
+        awaitFuncChineseCalendar { (Bool) in
+            if(Bool){
+                for yeardetail in self.chineseCalendarList {
+
+                        var initDateYear = yeardetail.startDate.toDateTime()
+                        for monthdetail in yeardetail.detailMonths {
+
+                            let arrspacialDay = self.spacialDayList.filter {
+                                ($0 ).monthChinese == Int(monthdetail.nameMonth)
+                                }
+
+                                if !arrspacialDay.isEmpty{
+                                    for v in arrspacialDay{
+                                        let date = initDateYear.addDays(v.dayChinese) as NSDate
+                                        self.calendarView.addEvent(calendar: ChineseCalendar,v.name, date: date as Date)
+                                    }
+                                    initDateYear = initDateYear.addDays(monthdetail.amountDay) as NSDate
+
+                                }
+
+                        }
+
                 }
-                
-                var arr = spacialDays.arrDetailMonths().filter {
-                    $0.nameMonth == Int(valueMonth.nameMonth)
-                }
-                if !arr.isEmpty{
-                    for v in arr[0].arrSpacialDay{
-                        let date = dateYear.addDays(v.day) as NSDate
-                        print("day : \(v.day) day : \(date)")
-                        self.calendarView.addEvent(v.name, date: date as Date)
-                        print("name : \(v.name) day : \(date)")
-                    }
-                    print("arr month : \(arr[0].nameMonth) amount : \(valueMonth.amountDay) ")
-                    
-                }
-                
-                dateYear = dateYear.addDays(valueMonth.amountDay) as NSDate
             }
         }
-
+        
+        
+    }
+    
+    func awaitFuncSpacialDay(completion: @escaping (_ success: Bool) -> Void) {
+        var itemlist = [spacialDayFire]()
+        self.ref.child("spacialDay").observeSingleEvent(of: .value, with: { (snapshot) in
+            //            group.enter()
+            
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+                let newModel = spacialDayFire(dict: rest.value as! [String : AnyObject])
+                itemlist.append(newModel)
+            }
+            
+            self.spacialDayList = itemlist
+            completion(true)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    func awaitFuncChineseCalendar(completion: @escaping (_ success: Bool) -> Void) {
+        awaitFuncSpacialDay { (Bool) in
+            if(Bool){
+                var itemlist = [chineseCalendarFire]()
+                self.ref.child("chineseCalendar").child(initDate).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    let enumerator = snapshot.children
+                    while let rest = enumerator.nextObject() as? DataSnapshot {
+                        let newModel = chineseCalendarFire(dict: rest.value as! [String : AnyObject])
+                        itemlist.append(newModel)
+                    }
+                    self.chineseCalendarList = itemlist
+                    completion(true)
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
     
     @IBAction func listShow(_ sender: UIButton) {
         var str = ""
-        print("month \(self.thisMonth)")
-        var arr = spacialDays.arrDetailMonths().filter {
-            $0.nameMonth == self.thisMonth
-        }
-        if !arr.isEmpty{
-            for v in arr[0].arrSpacialDay{
-            str +=  " - \(v.name) \n"
-            }
+        let eventStore = EKEventStore()
+        let calendars = eventStore.calendars(for: .event)
         
+        
+        
+        for calendar in calendars {
+            if calendar.title == ChineseCalendar {
+                
+                let oneMonthAgo = "01-01-2020".toDateTime()
+                let oneMonthAfter = "31-01-2020".toDateTime()
+                
+                let predicate = eventStore.predicateForEvents(withStart: oneMonthAgo as Date, end: oneMonthAfter as Date, calendars: [calendar])
+                
+                let events = eventStore.events(matching: predicate)
+                
+                for event in events {
+                    str +=  " - \(event.title ?? "none") \n"
+                }
+            }
         }
-                let popup = PopupDialog(title: "  Event " , message: str)
-                self.present(popup, animated: true, completion: nil)
+//        self.calendarView.addEvent(calendar: ChineseCalendar,"test", date: "02-01-2020".toDateTime() as Date)
+        
+        let popup = PopupDialog(title: "  Event " , message: str)
+        self.present(popup, animated: true, completion: nil)
         
     }
     
@@ -137,16 +169,16 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
-//        #if KDCALENDAR_EVENT_MANAGER_ENABLED
-//        self.calendarView.loadEvents() { error in
-//            if error != nil {
-//                let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
-//                let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
-//            }
-//        }
-//        #endif
+                #if KDCALENDAR_EVENT_MANAGER_ENABLED
+        self.calendarView.loadEvents(calendar: ChineseCalendar) { error in
+                    if error != nil {
+                        let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
+                        let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                #endif
         self.calendarView.setDisplayDate(today, animated: false)
         
     }
@@ -186,20 +218,20 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     }
     
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
-    
+        
     }
     
     func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
         var str = ""
         for event in events {
-          str +=  " \(event.title)"
+            str +=  " \(event.title)"
         }
         self.showTitle.text = str
         self.showTitle.lineBreakMode = .byWordWrapping
         self.showTitle.numberOfLines = 3
-//        let popup = PopupDialog(title: "  Event " , message: str)
-//        self.present(popup, animated: true, completion: nil)
-//
+        //        let popup = PopupDialog(title: "  Event " , message: str)
+        //        self.present(popup, animated: true, completion: nil)
+        //
         
     }
     

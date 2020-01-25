@@ -479,9 +479,9 @@ extension CalendarView {
 
     #if KDCALENDAR_EVENT_MANAGER_ENABLED
     
-    public func loadEvents(onComplete: ((Error?) -> Void)? = nil) {
-        
-        EventsManager.load(from: self.startDateCache, to: self.endDateCache) { // (events:[CalendarEvent]?) in
+    public func loadEvents(calendar ChineseCalendar:String,onComplete: ((Error?) -> Void)? = nil) {
+        EventsManager.load(calendar: ChineseCalendar,from: self.startDateCache, to: self.endDateCache) {
+            // (events:[CalendarEvent]?) in
             
             if let events = $0 {
                 self.events = events
@@ -493,7 +493,7 @@ extension CalendarView {
         }
     }
     
-    @discardableResult public func addEvent(_ title: String, date startDate: Date, duration hours: NSInteger = 1) -> Bool {
+    @discardableResult public func addEvent(calendar ChineseCalendar:String,_ title: String, date startDate: Date, duration hours: NSInteger = 1) -> Bool {
         
         var components = DateComponents()
         components.hour = hours
@@ -504,7 +504,7 @@ extension CalendarView {
         
         let event = CalendarEvent(title: title, startDate: startDate, endDate: endDate)
         
-        guard EventsManager.add(event: event) else {
+        guard EventsManager.add(calendar: ChineseCalendar,event: event) else {
             return false
         }
         
