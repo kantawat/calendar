@@ -12,6 +12,7 @@ import  UIKit
 
 
 var initDate = "05-02-2019"
+var initDay =  NSDate()
 var ChineseCalendar = "ChineseCalendar" //ChineseCalendar
 
 class spacialDayFire : NSObject {
@@ -56,6 +57,23 @@ class chineseCalendarFire : NSObject {
             list.append(detailMonth)
         }
         detailMonths = list
+    }
+}
+
+class chineseYearCalendarFire : NSObject {
+    var nameYear:String
+    var nameThaiYear:String
+    var amountMonth:Int
+    var amountDays:Int
+    var startDate:String
+    var endDate:String
+    init(dict: [String: AnyObject]) {
+        nameYear = dict["nameYear"] as! String
+        nameThaiYear = dict["nameThaiYear"] as! String
+        amountMonth = dict["amountMonth"] as! Int
+        amountDays = dict["amountDays"] as! Int
+        startDate = dict["startDate"] as! String
+        endDate = dict["endDate"] as! String
     }
 }
 
