@@ -41,14 +41,15 @@ extension NSDate {
     }
    
     
-    func toString() -> String {
+    func toString(dateFormat format  : String) -> String {
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.dateFormat = format
         let myString = formatter.string(from: self as Date)
         
         return myString
     }
+    
 }
 
 
@@ -65,6 +66,7 @@ extension String
         
         return dateFromString
     }
+    
 }
 
 

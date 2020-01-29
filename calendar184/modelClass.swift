@@ -9,23 +9,58 @@
 import Foundation
 import  UIKit
 
-class spacialDay{
+
+
+var initDate = "05-02-2019"
+var initDay =  NSDate()
+var ChineseCalendar = "ChineseCalendar" //ChineseCalendar
+
+class spacialDayFire : NSObject {
     var name:String
-    var day:Int
-    init(name:String,day:Int) {
-        self.name=name
-        self.day=day
-    }
-}
-class arrSpacialDay{
-    var arrSpacialDay:Array<spacialDay>
-    var nameMonth:Int
-    init(arrSpacialDay:Array<spacialDay>,nameMonth:Int) {
-        self.arrSpacialDay = arrSpacialDay
-        self.nameMonth = nameMonth
+    var dayChinese:Int
+    var monthChinese:Int
+    init(dict: [String: AnyObject]) {
+        dayChinese = dict["dayChinese"] as! Int
+        name = dict["name"] as! String
+        monthChinese = dict["monthChinese"] as! Int
     }
 }
 
+class DetailMonth : NSObject {
+    var nameMonth:String
+    var amountDay:Int
+    init(dict: [String: AnyObject]) {
+        nameMonth = dict["nameMonth"] as! String
+        amountDay = dict["amountDay"] as! Int
+    }
+}
+class chineseCalendarFire : NSObject {
+    var nameYear:String
+    var nameThaiYear:String
+    var amountMonth:Int
+    var amountDays:Int
+    var startDate:String
+    var endDate:String
+    var detailMonths:[DetailMonth]
+    init(dict: [String: AnyObject]) {
+        nameYear = dict["nameYear"] as! String
+        nameThaiYear = dict["nameThaiYear"] as! String
+        amountMonth = dict["amountMonth"] as! Int
+        amountDays = dict["amountDays"] as! Int
+        startDate = dict["startDate"] as! String
+        endDate = dict["endDate"] as! String
+        
+        var list = [DetailMonth]()
+        let enumerator =  dict["detailMonth"] as! NSArray
+        for x in enumerator{
+            let detailMonth = DetailMonth(dict: x as! [String : AnyObject])
+            list.append(detailMonth)
+        }
+        detailMonths = list
+    }
+}
+
+//<<<<<<< HEAD
 class spacialDays{
     static var arrDetailMonth1 = arrSpacialDay.init (arrSpacialDay: [
       
@@ -104,6 +139,24 @@ class spacialDays{
     
     static func arrDetailMonths() -> Array<arrSpacialDay>{
         return [self.arrDetailMonth1,self.arrDetailMonth2,self.arrDetailMonth3,self.arrDetailMonth4,self.arrDetailMonth5,self.arrDetailMonth6,self.arrDetailMonth7,self.arrDetailMonth8,self.arrDetailMonth9,self.arrDetailMonth10,self.arrDetailMonth11,self.arrDetailMonth12]
+=======
+class chineseYearCalendarFire : NSObject {
+    var nameYear:String
+    var nameThaiYear:String
+    var amountMonth:Int
+    var amountDays:Int
+    var startDate:String
+    var endDate:String
+    init(dict: [String: AnyObject]) {
+        nameYear = dict["nameYear"] as! String
+        nameThaiYear = dict["nameThaiYear"] as! String
+        amountMonth = dict["amountMonth"] as! Int
+        amountDays = dict["amountDays"] as! Int
+        startDate = dict["startDate"] as! String
+        endDate = dict["endDate"] as! String
+>>>>>>> 3466fa9f439da93dbd4e2831d845eb68011aec7e
     }
-    
 }
+}
+
+

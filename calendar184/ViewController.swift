@@ -11,17 +11,26 @@ import UIKit
 import KDCalendar
 import Firebase
 import PopupDialog
+import EventKit
 
 class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDelegate{
     
 
     
+<<<<<<< HEAD
     @IBOutlet weak var labelHeader: UILabel!
+=======
+    var thisMonth = 0
+    var spacialDayList = [spacialDayFire]()
+    var chineseCalendarList = [chineseCalendarFire]()
+    var ref: DatabaseReference!
+    @IBOutlet weak var showTitle: UILabel!
+>>>>>>> 3466fa9f439da93dbd4e2831d845eb68011aec7e
     
     @IBOutlet weak var calendarView: CalendarView!
-    var refDatabase: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
     
         let dataYears = chineseCalendar.detailYears()
         var dateYear = chineseCalendar.startDate.toDateTime()
@@ -48,10 +57,13 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
                 dateYear = dateYear.addDays(valueMonth.amountDay) as NSDate
                 }
         }
+=======
+        
+>>>>>>> 3466fa9f439da93dbd4e2831d845eb68011aec7e
         
         
         let style = CalendarView.Style()
-
+        
         
         style.cellShape                = .bevel(8.0)
         style.cellColorDefault         = UIColor.clear
@@ -90,6 +102,7 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         
         calendarView.backgroundColor = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1.0)
         
+<<<<<<< HEAD
         
         
     }
@@ -115,10 +128,133 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
 
 
 
+=======
+        self.ref = Database.database().reference()
+        
+        if(!checkChineseCalendar()){
+            awaitFuncChineseCalendar { (Bool) in
+                if(Bool){
+                    for yeardetail in self.chineseCalendarList {
+                        
+                        var initDateYear = yeardetail.startDate.toDateTime()
+                        for monthdetail in yeardetail.detailMonths {
+                            
+                            let arrspacialDay = self.spacialDayList.filter {
+                                ($0 ).monthChinese == Int(monthdetail.nameMonth)
+                            }
+                            
+                            if !arrspacialDay.isEmpty{
+                                for v in arrspacialDay{
+                                    let date = initDateYear.addDays(v.dayChinese) as NSDate
+                                    self.calendarView.addEvent(calendar: ChineseCalendar,v.name, date: date as Date)
+                                }
+                                initDateYear = initDateYear.addDays(monthdetail.amountDay) as NSDate
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                }
+            }
+        }
     }
+    
+    func awaitFuncSpacialDay(completion: @escaping (_ success: Bool) -> Void) {
+        var itemlist = [spacialDayFire]()
+        self.ref.child("spacialDay").observeSingleEvent(of: .value, with: { (snapshot) in
+            //            group.enter()
+            
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+                let newModel = spacialDayFire(dict: rest.value as! [String : AnyObject])
+                itemlist.append(newModel)
+            }
+            
+            self.spacialDayList = itemlist
+            completion(true)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    func awaitFuncChineseCalendar(completion: @escaping (_ success: Bool) -> Void) {
+        awaitFuncSpacialDay { (Bool) in
+            if(Bool){
+                var itemlist = [chineseCalendarFire]()
+                self.ref.child("chineseCalendar").child(initDate).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    let enumerator = snapshot.children
+                    while let rest = enumerator.nextObject() as? DataSnapshot {
+                        let newModel = chineseCalendarFire(dict: rest.value as! [String : AnyObject])
+                        itemlist.append(newModel)
+                    }
+                    self.chineseCalendarList = itemlist
+                    completion(true)
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+//    @IBAction func goNext(_ sender: UIButton) {
+//        performSegue(withIdentifier: "BruceTheHoon",sender: self)
+//    }
+    func checkChineseCalendar() -> Bool  {
+        let eventStore = EKEventStore()
+        let calendars = eventStore.calendars(for: .event)
+        var check = false
+        for calendar in calendars {
+            if calendar.title == ChineseCalendar {
+                check = true
+            }
+        }
+        
+        return check
+        
+>>>>>>> 3466fa9f439da93dbd4e2831d845eb68011aec7e
+    }
+    @IBAction func next(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+        
+    }
+    @IBAction func listShow(_ sender: UIButton) {
+        
+        var str = ""
+        let eventStore = EKEventStore()
+        let calendars = eventStore.calendars(for: .event)
+
+
+
+        for calendar in calendars {
+            if calendar.title == ChineseCalendar {
+
+                let oneMonthAgo = "01-01-2020".toDateTime()
+                let oneMonthAfter = "31-01-2020".toDateTime()
+
+                let predicate = eventStore.predicateForEvents(withStart: oneMonthAgo as Date, end: oneMonthAfter as Date, calendars: [calendar])
+
+                let events = eventStore.events(matching: predicate)
+
+                for event in events {
+                    print(event)
+                    var date = event.startDate as NSDate
+                    str +=  " -  วันที่ \(date.toString(dateFormat: "dd"))  \(event.title ?? "none") \n"
+                }
+            }
+        }
+//        self.calendarView.addEvent(calendar: ChineseCalendar,"test", date: "02-01-2020".toDateTime() as Date)
+
+        let popup = PopupDialog(title: "  Event " , message: str)
+        self.present(popup, animated: true, completion: nil)
+        
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let today = Date()
+<<<<<<< HEAD
 //        #if KDCALENDAR_EVENT_MANAGER_ENABLED
 //        self.calendarView.loadEvents() { error in
 //            if error != nil {
@@ -129,6 +265,18 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
 //            }
 //        }
 //        #endif
+=======
+                #if KDCALENDAR_EVENT_MANAGER_ENABLED
+        self.calendarView.loadEvents(calendar: ChineseCalendar) { error in
+                    if error != nil {
+                        let message = "The karmadust calender could not load system events. It is possibly a problem with permissions"
+                        let alert = UIAlertController(title: "Events Loading Error", message: message, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                #endif
+>>>>>>> 3466fa9f439da93dbd4e2831d845eb68011aec7e
         self.calendarView.setDisplayDate(today, animated: false)
         
     }
@@ -136,7 +284,7 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     func startDate() -> Date {
         
         var dateComponents = DateComponents()
-        dateComponents.month = -10
+        dateComponents.month = -12
         
         let today = Date()
         
@@ -168,19 +316,27 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     }
     
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
-    
+        
     }
     
     func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
         var str = ""
         for event in events {
-          str +=  " \(event.title)"
+            str +=  " \(event.title)"
         }
+<<<<<<< HEAD
         self.labelHeader.text = str
         
 //        let popup = PopupDialog(title: "  Event " , message: str)
 //        self.present(popup, animated: true, completion: nil)
         
+=======
+        self.showTitle.text = str
+        self.showTitle.lineBreakMode = .byWordWrapping
+        self.showTitle.numberOfLines = 3
+        initDay = date as NSDate
+       performSegue(withIdentifier: "detailView",sender: self)
+>>>>>>> 3466fa9f439da93dbd4e2831d845eb68011aec7e
         
     }
     
