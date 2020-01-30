@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  calendar184
-//
-//  Created by Lin Por on 10/12/19.
-//  Copyright © 2019 kantawat. All rights reserved.
-//
-//test git
 
 import UIKit
 import KDCalendar
@@ -15,13 +7,8 @@ import EventKit
 
 class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDelegate{
     
-    
-    var thisMonth = 0
-    var spacialDayList = [spacialDayFire]()
-    var chineseCalendarList = [chineseCalendarFire]()
-    var ref: DatabaseReference!
+
     @IBOutlet weak var showTitle: UILabel!
-    
     @IBOutlet weak var calendarView: CalendarView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,91 +54,11 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         
         
         calendarView.backgroundColor = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1.0)
+
         
-        self.ref = Database.database().reference()
         
-        if(!checkChineseCalendar()){
-            awaitFuncChineseCalendar { (Bool) in
-                if(Bool){
-                    for yeardetail in self.chineseCalendarList {
-                        
-                        var initDateYear = yeardetail.startDate.toDateTime()
-                        for monthdetail in yeardetail.detailMonths {
-                            
-                            let arrspacialDay = self.spacialDayList.filter {
-                                ($0 ).monthChinese == Int(monthdetail.nameMonth)
-                            }
-                            
-                            if !arrspacialDay.isEmpty{
-                                for v in arrspacialDay{
-                                    let date = initDateYear.addDays(v.dayChinese) as NSDate
-                                    self.calendarView.addEvent(calendar: ChineseCalendar,v.name, date: date as Date)
-                                }
-                                initDateYear = initDateYear.addDays(monthdetail.amountDay) as NSDate
-                                
-                            }
-                            
-                        }
-                        
-                    }
-                }
-            }
-        }
     }
     
-    func awaitFuncSpacialDay(completion: @escaping (_ success: Bool) -> Void) {
-        var itemlist = [spacialDayFire]()
-        self.ref.child("spacialDay").observeSingleEvent(of: .value, with: { (snapshot) in
-            //            group.enter()
-            
-            let enumerator = snapshot.children
-            while let rest = enumerator.nextObject() as? DataSnapshot {
-                let newModel = spacialDayFire(dict: rest.value as! [String : AnyObject])
-                itemlist.append(newModel)
-            }
-            
-            self.spacialDayList = itemlist
-            completion(true)
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-    }
-    func awaitFuncChineseCalendar(completion: @escaping (_ success: Bool) -> Void) {
-        awaitFuncSpacialDay { (Bool) in
-            if(Bool){
-                var itemlist = [chineseCalendarFire]()
-                self.ref.child("chineseCalendar").child(initDate).observeSingleEvent(of: .value, with: { (snapshot) in
-                    
-                    let enumerator = snapshot.children
-                    while let rest = enumerator.nextObject() as? DataSnapshot {
-                        let newModel = chineseCalendarFire(dict: rest.value as! [String : AnyObject])
-                        itemlist.append(newModel)
-                    }
-                    self.chineseCalendarList = itemlist
-                    completion(true)
-                }) { (error) in
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
-//    @IBAction func goNext(_ sender: UIButton) {
-//        performSegue(withIdentifier: "BruceTheHoon",sender: self)
-//    }
-    func checkChineseCalendar() -> Bool  {
-        let eventStore = EKEventStore()
-        let calendars = eventStore.calendars(for: .event)
-        var check = false
-        for calendar in calendars {
-            if calendar.title == ChineseCalendar {
-                check = true
-            }
-        }
-        
-        return check
-        
-    }
     @IBAction func next(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
         

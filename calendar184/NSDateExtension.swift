@@ -1,10 +1,3 @@
-//
-//  NSDateExtension.swift
-//  calendar184
-//
-//  Created by Lin Por on 17/12/19.
-//  Copyright © 2019 kantawat. All rights reserved.
-//
 
 import Foundation
 

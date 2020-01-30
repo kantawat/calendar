@@ -26,6 +26,11 @@ PODS:
   - GoogleDataTransportCCTSupport (1.2.2):
     - GoogleDataTransport (~> 3.2)
     - nanopb (~> 0.3.901)
+  - GoogleMaps (3.7.0):
+    - GoogleMaps/Maps (= 3.7.0)
+  - GoogleMaps/Base (3.7.0)
+  - GoogleMaps/Maps (3.7.0):
+    - GoogleMaps/Base
   - GoogleUtilities/Environment (6.3.2)
   - GoogleUtilities/Logger (6.3.2):
     - GoogleUtilities/Environment
@@ -40,11 +45,14 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Firebase/Database
+  - GoogleMaps
   - KDCalendar (~> 1.8.2)
   - PopupDialog (~> 1.1)
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -57,11 +65,13 @@ SPEC REPOS:
     - FirebaseDatabase
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleMaps
     - GoogleUtilities
     - KDCalendar
     - leveldb-library
     - nanopb
     - PopupDialog
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
@@ -73,12 +83,14 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 963515d232ded06f36f6ce830507c94551866170
   GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
   GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
+  GoogleMaps: 55da829c68aa931f3ae982b9e341cc2f3d89c587
   GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
   KDCalendar: 114f8d2dd091608c2d8db7d5783c96a4c4a60398
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: a7838128a1d54b020fc5b7015ada93738dd1ec40
+PODFILE CHECKSUM: ecc8b62d99eaba489049ab64db90341d46325be7
 
 COCOAPODS: 1.8.4
