@@ -14,9 +14,10 @@ class DataViewController: UIViewController , CalendarViewDataSource , CalendarVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         calendarView.dataSource = self
         calendarView.delegate = self
-        calendarView.alpha = 0
+//        calendarView.alpha = 0
 
         
         self.ref = Database.database().reference()

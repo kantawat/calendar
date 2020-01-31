@@ -18,6 +18,7 @@
 		E5F3E9E4239FDA9F003D9B71 /* calendar184Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9E3239FDA9F003D9B71 /* calendar184Tests.swift */; };
 		E5F3E9EF239FDA9F003D9B71 /* calendar184UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9EE239FDA9F003D9B71 /* calendar184UITests.swift */; };
 		F1ACC7FCFC5BA9439F0DC04D /* Pods_calendar184Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDA3876B802B5D129667980 /* Pods_calendar184Tests.framework */; };
+		FF01808023E4E8BD005C200F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01807F23E4E8BD005C200F /* EventViewController.swift */; };
 		FF103B0A23AA9F2A00D4FFC9 /* modelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF103B0923AA9F2A00D4FFC9 /* modelClass.swift */; };
 		FF12959523E1E1C1002047E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF12959423E1E1C1002047E8 /* GoogleService-Info.plist */; };
 		FF12959723E1E2A8002047E8 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF12959623E1E2A8002047E8 /* DataViewController.swift */; };
@@ -72,6 +73,7 @@
 		E5F3E9EA239FDA9F003D9B71 /* calendar184UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calendar184UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F3E9EE239FDA9F003D9B71 /* calendar184UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendar184UITests.swift; sourceTree = "<group>"; };
 		E5F3E9F0239FDA9F003D9B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF01807F23E4E8BD005C200F /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		FF103B0923AA9F2A00D4FFC9 /* modelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelClass.swift; sourceTree = "<group>"; };
 		FF12959423E1E1C1002047E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF12959623E1E2A8002047E8 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				FF12959E23E30512002047E8 /* GoogleDataProvider.swift */,
 				FF1295A623E314EF002047E8 /* MarkerInfoView.swift */,
 				FF1295AA23E31680002047E8 /* MarkerInfoView.xib */,
+				FF01807F23E4E8BD005C200F /* EventViewController.swift */,
 			);
 			path = calendar184;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			files = (
 				FF45C93B23E09F09003E87B8 /* CalendarViewController.swift in Sources */,
 				FF103B0A23AA9F2A00D4FFC9 /* modelClass.swift in Sources */,
+				FF01808023E4E8BD005C200F /* EventViewController.swift in Sources */,
 				FF12959D23E30266002047E8 /* GooglePlace.swift in Sources */,
 				E56DD61223A9335C0020FB86 /* NSDateExtension.swift in Sources */,
 				FF1295A723E314EF002047E8 /* MarkerInfoView.swift in Sources */,

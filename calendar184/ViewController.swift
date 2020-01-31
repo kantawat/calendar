@@ -8,6 +8,7 @@ import EventKit
 class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDelegate{
     
 
+    var month = NSDate()
     @IBOutlet weak var showTitle: UILabel!
     @IBOutlet weak var calendarView: CalendarView!
     override func viewDidLoad() {
@@ -55,9 +56,13 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         
         calendarView.backgroundColor = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1.0)
 
-        
+//        month = NSDate().toString(dateFormat: "dd-MM-yyyy")
         
     }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        self.calendarView.collectionViewLayout.invalidateLayout()
+//    }
     
     @IBAction func next(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -73,9 +78,15 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
 
         for calendar in calendars {
             if calendar.title == ChineseCalendar {
+                
+                let months = (String(month.getMonth()).count == 1 ? "0" + String(month.getMonth()) : String(month.getMonth()))
+                let yaers = month.getYear()
+                let calendarx = Calendar.current
+                let range = calendarx.range(of: .day, in: .month, for: month as Date)!
+                let numDays = range.count
 
-                let oneMonthAgo = "01-01-2020".toDateTime()
-                let oneMonthAfter = "31-01-2020".toDateTime()
+                let oneMonthAgo = "01-\(months)-\(yaers)".toDateTime()
+                let oneMonthAfter = "\(numDays)-\(months)-\(yaers)".toDateTime()
 
                 let predicate = eventStore.predicateForEvents(withStart: oneMonthAgo as Date, end: oneMonthAfter as Date, calendars: [calendar])
 
@@ -148,6 +159,7 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     }
     
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
+        self.month = date as NSDate
         
     }
     

@@ -6,6 +6,7 @@ import  UIKit
 
 
 var initDate = "05-02-2019"
+var searchMap = ""
 var initDay =  NSDate()
 var ChineseCalendar = "ChineseCalendar" //ChineseCalendar
 var spacialDayList = [spacialDayFire]()
