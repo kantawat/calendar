@@ -48,6 +48,7 @@ class DataViewController: UIViewController , CalendarViewDataSource , CalendarVi
                         }
                         
                     }
+//                    self.performSegue(withIdentifier: "notfacebook", sender: self)
                     self.performSegue(withIdentifier: "loadDataToLogin",sender: self)
                 }
             }

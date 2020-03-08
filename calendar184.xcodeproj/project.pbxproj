@@ -27,6 +27,8 @@
 		FF12959F23E30512002047E8 /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF12959E23E30512002047E8 /* GoogleDataProvider.swift */; };
 		FF3AA5CD2414D418006ED2AC /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AA5CC2414D418006ED2AC /* Dialog.swift */; };
 		FF3AA5CF2414F214006ED2AC /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AA5CE2414F214006ED2AC /* Notifications.swift */; };
+		FF3AA5D124156310006ED2AC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AA5D024156310006ED2AC /* RegisterViewController.swift */; };
+		FF3AA5D324156332006ED2AC /* LoginConViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AA5D224156332006ED2AC /* LoginConViewController.swift */; };
 		FF45C93D23E0BDC2003E87B8 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45C93C23E0BDC2003E87B8 /* DayViewController.swift */; };
 		FF54C70E240A7888009B5300 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF54C70D240A7888009B5300 /* LoginViewController.swift */; };
 		FF6AA8882406D07900E3B42A /* ListEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AA8872406D07900E3B42A /* ListEventViewController.swift */; };
@@ -85,6 +87,8 @@
 		FF12959E23E30512002047E8 /* GoogleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		FF3AA5CC2414D418006ED2AC /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		FF3AA5CE2414F214006ED2AC /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		FF3AA5D024156310006ED2AC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		FF3AA5D224156332006ED2AC /* LoginConViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConViewController.swift; sourceTree = "<group>"; };
 		FF45C93C23E0BDC2003E87B8 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		FF54C70D240A7888009B5300 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FF6AA8872406D07900E3B42A /* ListEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 				FF45C93C23E0BDC2003E87B8 /* DayViewController.swift */,
 				FF6AA8872406D07900E3B42A /* ListEventViewController.swift */,
 				FF54C70D240A7888009B5300 /* LoginViewController.swift */,
+				FF3AA5D024156310006ED2AC /* RegisterViewController.swift */,
+				FF3AA5D224156332006ED2AC /* LoginConViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 				FF103B0A23AA9F2A00D4FFC9 /* modelClass.swift in Sources */,
 				FF54C70E240A7888009B5300 /* LoginViewController.swift in Sources */,
 				FF12959D23E30266002047E8 /* GooglePlace.swift in Sources */,
+				FF3AA5D324156332006ED2AC /* LoginConViewController.swift in Sources */,
 				E56DD61223A9335C0020FB86 /* NSDateExtension.swift in Sources */,
 				FF6AA88C2406D93700E3B42A /* TableViewCell.swift in Sources */,
 				E5F3E9D1239FDA9A003D9B71 /* ViewController.swift in Sources */,
@@ -551,6 +558,7 @@
 				FF12959723E1E2A8002047E8 /* DataViewController.swift in Sources */,
 				FF12959F23E30512002047E8 /* GoogleDataProvider.swift in Sources */,
 				E5F3E9CF239FDA9A003D9B71 /* AppDelegate.swift in Sources */,
+				FF3AA5D124156310006ED2AC /* RegisterViewController.swift in Sources */,
 				FF12959B23E301B7002047E8 /* PlaceMarker.swift in Sources */,
 				FF45C93D23E0BDC2003E87B8 /* DayViewController.swift in Sources */,
 				FF12959923E2F021002047E8 /* MapViewController.swift in Sources */,

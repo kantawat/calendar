@@ -18,9 +18,16 @@ class LoginViewController: UIViewController {
         self.ref = Database.database().reference()
     }
     
+    @IBAction func normalLogin(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "enterLogin",sender: self)
+    }
+    
     @IBAction func loginwithfacebook(_ sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logIn(permissions: readPermissions, viewController: self, completion: didReceiveFacebookLoginResult)
+    }
+    @IBAction func enterSignup(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "enterSignup",sender: self)
     }
     
     private func didReceiveFacebookLoginResult(loginResult: LoginResult) {

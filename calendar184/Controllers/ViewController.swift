@@ -28,18 +28,18 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     }
     
     @IBAction func next(_ sender: UIButton) {
-        let alert = UIAlertController(title: "",
-                                      message: "After 5 seconds ",
-                                      preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.scheduleNotification(notificationType: "Local Notification")
-        }
-        
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-//        settingDialog()
+//        let alert = UIAlertController(title: "",
+//                                      message: "After 5 seconds ",
+//                                      preferredStyle: .alert)
+//
+//        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//        appDelegate?.scheduleNotification(notificationType: "Local Notification")
+//        }
+//
+//        alert.addAction(okAction)
+//        present(alert, animated: true, completion: nil)
+        settingDialog()
         
     }
     @IBAction func btnActionEventList(_ sender: UIButton) {

@@ -8,6 +8,8 @@ class DayViewController: UIViewController {
     
     var chineseDay:[String] = []
     var chineseNotlike:[String] = []
+    var arrspacialDay = [spacialDayFire]()
+    
     var moreDetailView:UIView = UIView()
     var moreDetailConstraint: NSLayoutConstraint?
     let scrollView: UIScrollView = {
@@ -145,11 +147,8 @@ class DayViewController: UIViewController {
         moreDetailConstraint!.isActive = true
         moreDetailView.backgroundColor = .white
         
-        let arrspacialDay = spacialDayList.filter {
-            (($0 ).monthChinese == Int(self.chineseDay[2])) && (($0 ).dayChinese == Int(self.chineseDay[1]))
-        }
         var arrbeg = [Int]()
-        for x in arrspacialDay {
+        for x in self.arrspacialDay {
            
             arrbeg += x.detail
         }
@@ -274,45 +273,21 @@ class DayViewController: UIViewController {
         let date2 = calendar.startOfDay(for: initDay as Date)
 
         let components = calendar.dateComponents([.day], from: date1, to: date2)
-        var diffDay = components.day
-        print(components)
+        var diffDay = components.day! + 1
         for year in chineseCalendarList{
             for i  in year.detailMonths{
-                if(diffDay! - i.amountDay <= 0 ){
-                    strlist.append("วันที่ \(diffDay!) เดือน \(i.nameMonth) ปี \(year.nameThaiYear)")
-                    strlist.append("\(diffDay!)")
+                if(diffDay - i.amountDay <= 0 ){
+                    strlist.append("วันที่ \(diffDay) เดือน \(i.nameMonth) ปี \(year.nameThaiYear)")
+                    strlist.append("\(diffDay)")
                     strlist.append(i.nameMonth)
                     return strlist;
                 }else{
-                    diffDay = (diffDay! - i.amountDay)
+                    diffDay = (diffDay - i.amountDay)
                 }
             }
         }
         return []
     }
-//    func getEventDay() -> String{
-//        var str = ""
-//        let eventStore = EKEventStore()
-//        let calendars = eventStore.calendars(for: .event)
-//
-//        for calendar in calendars {
-//            print(calendar.title )
-//            if calendar.title == ChineseCalendar {
-//                let date1 = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: initDay as Date)!
-//                let date2 = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: initDay as Date)!
-//
-//                let predicate = eventStore.predicateForEvents(withStart: date1 , end: date2, calendars: [calendar])
-//
-//                let events = eventStore.events(matching: predicate)
-//
-//                for event in events {
-//                    str +=  " - \(event.title ?? "none") \n"
-//                }
-//            }
-//        }
-//        print(str)
-//        return str
-//    }
     func getDetailDay() -> [String]{
         var strlist = [String]()
         let calendar = Calendar.current
@@ -336,10 +311,10 @@ class DayViewController: UIViewController {
         return strlist
     }
     func checkMoreDetailDay() -> Bool{
-        let arrspacialDay = spacialDayList.filter {
+        self.arrspacialDay = spacialDayList.filter {
             (($0 ).monthChinese == Int(self.chineseDay[2])) && (($0 ).dayChinese == Int(self.chineseDay[1]))
         }
-        if(!arrspacialDay.isEmpty){
+        if(!self.arrspacialDay.isEmpty){
             return true
         }else{
             return false
