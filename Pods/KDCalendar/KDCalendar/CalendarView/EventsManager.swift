@@ -76,13 +76,13 @@ open class EventsManager {
         var check = true
         var ca  = store.defaultCalendarForNewEvents
         let calendars = store.calendars(for: .event)
-
+        
         for calendar in calendars {
             if calendar.title == ChineseCalendar {
                 ca = calendar
                 check = false
             }
-
+            
         }
         if(check){
             if(CreateCalendar(calendar: ChineseCalendar)){
@@ -104,7 +104,7 @@ open class EventsManager {
         event.startDate = calendarEvent.startDate.addingTimeInterval(secondsFromGMTDifference)
         event.endDate = calendarEvent.endDate.addingTimeInterval(secondsFromGMTDifference)
         event.calendar = ca
-//        event.calendar = store.defaultCalendarForNewEvents
+        //        event.calendar = store.defaultCalendarForNewEvents
         do {
             try store.save(event, span: .thisEvent)
             return true
@@ -135,19 +135,19 @@ open class EventsManager {
             }
         }
         
-//        let predicate = store.predicateForEvents(withStart: fromDate, end: toDate, calendars: nil)
-//
-//        let secondsFromGMTDifference = TimeInterval(TimeZone.current.secondsFromGMT())
-//
-//        let events = store.events(matching: predicate).map {
-//            return CalendarEvent(
-//                title:      $0.title,
-//                startDate:  $0.startDate.addingTimeInterval(secondsFromGMTDifference),
-//                endDate:    $0.endDate.addingTimeInterval(secondsFromGMTDifference)
-//            )
-//        }
-//
-//        onComplete(events)
+        //        let predicate = store.predicateForEvents(withStart: fromDate, end: toDate, calendars: nil)
+        //
+        //        let secondsFromGMTDifference = TimeInterval(TimeZone.current.secondsFromGMT())
+        //
+        //        let events = store.events(matching: predicate).map {
+        //            return CalendarEvent(
+        //                title:      $0.title,
+        //                startDate:  $0.startDate.addingTimeInterval(secondsFromGMTDifference),
+        //                endDate:    $0.endDate.addingTimeInterval(secondsFromGMTDifference)
+        //            )
+        //        }
+        //
+        //        onComplete(events)
     }
 }
 #endif

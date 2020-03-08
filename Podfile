@@ -10,10 +10,15 @@ target 'calendar184' do
     # https://firebase.google.com/docs/ios/setup#available-pods
 
     pod 'Firebase/Database'
-    pod 'GoogleMaps'
     pod 'SwiftyJSON'
     pod 'KDCalendar', '~> 1.8.2'
     pod 'PopupDialog', '~> 1.1'
+    pod 'Firebase/Auth'
+    pod 'GoogleMaps', '3.7.0'
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
+    pod 'FacebookShare'
+    pod 'SCLAlertView'
     
   target 'calendar184Tests' do
     inherit! :search_paths

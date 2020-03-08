@@ -39,12 +39,16 @@ extension CalendarView {
             case grayed
         }
         
+        public enum WeekDaysTransform {
+            case capitalized, uppercase
+        }
+        
         public init()
         {
         }
         
         //Event
-        public var cellEventColor = UIColor(red: 254.0/255.0, green: 73.0/255.0, blue: 64.0/255.0, alpha: 0.8)
+        public var cellEventColor            = UIColor(red: 254.0/255.0, green: 73.0/255.0, blue: 64.0/255.0, alpha: 0.8)
         
         //Header
         public var headerHeight: CGFloat     = 80.0
@@ -91,17 +95,15 @@ extension CalendarView {
         //Locale Style
         public var locale                    = Locale.current
         
-        //TimeZone Calendar Style
-        public var timeZone: TimeZone {
-            get { return calendar.timeZone }
-            set { calendar.timeZone = newValue }
-        }
-        
         //Calendar Identifier Style
         public lazy var calendar: Calendar   = {
             var calendar = Calendar(identifier: .gregorian)
             calendar.timeZone = TimeZone(abbreviation: "UTC")!
             return calendar
         }()
+        
+        public var weekDayTransform = WeekDaysTransform.capitalized
+        
+        
     }
 }

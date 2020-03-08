@@ -1,5 +1,7 @@
 
 import Foundation
+import UIKit
+import QuartzCore
 
 extension NSDate {
     func isBetweeen(date date1: NSDate, andDate date2: NSDate) -> Bool {
@@ -63,3 +65,18 @@ extension String
 }
 
 
+func makeRoundImg(image: UIImage) -> UIImage {
+    var imageView = UIImageView(image: image)
+    let imgLayer = CALayer()
+    imgLayer.frame = imageView.bounds
+    imgLayer.contents = imageView.image?.cgImage;
+    imgLayer.masksToBounds = true;
+    
+    imgLayer.cornerRadius = imageView.frame.size.width/2
+    
+    UIGraphicsBeginImageContext(imageView.bounds.size)
+    imgLayer.render(in: UIGraphicsGetCurrentContext()!)
+    let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return roundedImage!;
+}

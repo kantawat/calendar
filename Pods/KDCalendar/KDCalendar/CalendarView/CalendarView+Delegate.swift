@@ -40,6 +40,10 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             }
             
         } else {
+            if let currentCell = collectionView.cellForItem(at: indexPath) as? CalendarDayCell, currentCell.isOutOfRange || currentCell.isAdjacent {
+                self.reloadData()
+                return
+            }
             
             if !multipleSelectionEnable {
                 selectedIndexPaths.removeAll()
@@ -98,8 +102,8 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
             page = Int(floor(offsetX / Float(width)))
         case .vertical:
             let offsetY = ceilf(Float(self.collectionView.contentOffset.y))
-            let width = self.collectionView.bounds.size.width
-            page = Int(floor(offsetY / Float(width)))
+            let height = self.collectionView.bounds.size.height
+            page = Int(floor(offsetY / Float(height)))
         @unknown default:
             fatalError()
         }

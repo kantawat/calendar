@@ -9,53 +9,94 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="JS-Chawlewhieng.ttf">
+            <string>JSChawlewhieng</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Calendar View Controller-->
-        <scene sceneID="z4C-kV-Gil">
+        <!--List Event View Controller-->
+        <scene sceneID="J2u-sl-tZk">
             <objects>
-                <viewController id="qCR-3K-UH7" customClass="CalendarViewController" customModule="calendar184" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h5J-r3-9RT">
+                <viewController id="ecK-sB-wz3" customClass="ListEventViewController" customModule="calendar184" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xFu-MZ-OfQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rap-iB-Vwp">
-                                <rect key="frame" x="70" y="144" width="274" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptp-TB-WgI">
-                                <rect key="frame" x="260" y="79" width="107" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gjk-9a-23h">
+                                <rect key="frame" x="0.0" y="33" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="วันสำคัญประจำเดือน" id="JVb-IL-e2L">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="5lR-0h-Gto">
+                                            <connections>
+                                                <action selector="onBackbtn:" destination="ecK-sB-wz3" id="gIE-g9-t8K"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DdW-JR-rOu">
+                                <rect key="frame" x="0.0" y="77" width="375" height="706"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="95" id="sgn-Xk-C6B" customClass="TableViewCell" customModule="calendar184" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sgn-Xk-C6B" id="4Ro-lS-yRD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C73-n7-gje">
+                                                    <rect key="frame" x="84" y="21" width="218" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cok-37-8ha">
+                                                    <rect key="frame" x="84" y="50" width="218" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="eventText" destination="C73-n7-gje" id="cd1-d6-xNP"/>
+                                            <outlet property="subEventText" destination="cok-37-8ha" id="eHL-vD-QFR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                                 <connections>
-                                    <action selector="back:" destination="qCR-3K-UH7" eventType="touchUpInside" id="Ags-JI-VRd"/>
-                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tuP-5y-f5T"/>
+                                    <outlet property="dataSource" destination="ecK-sB-wz3" id="sJp-mA-JCG"/>
+                                    <outlet property="delegate" destination="ecK-sB-wz3" id="aA1-ZF-kHN"/>
                                 </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gD-xQ-oCc">
-                                <rect key="frame" x="40" y="253" width="344" height="476"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YaP-Tf-V3j">
-                                        <rect key="frame" x="117" y="-12" width="110" height="480"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </stackView>
-                                </subviews>
-                            </scrollView>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="mHZ-ae-up0"/>
+                        <constraints>
+                            <constraint firstItem="Gjk-9a-23h" firstAttribute="leading" secondItem="DdW-JR-rOu" secondAttribute="leading" id="Dv5-dh-es0"/>
+                            <constraint firstItem="Gjk-9a-23h" firstAttribute="leading" secondItem="xFu-MZ-OfQ" secondAttribute="leading" id="KzU-MF-Xk7"/>
+                            <constraint firstItem="Gjk-9a-23h" firstAttribute="top" secondItem="xFu-MZ-OfQ" secondAttribute="topMargin" constant="-11" id="NZQ-Qn-YzD"/>
+                            <constraint firstAttribute="trailing" secondItem="Gjk-9a-23h" secondAttribute="trailing" id="VM5-Bz-vba"/>
+                            <constraint firstItem="Gjk-9a-23h" firstAttribute="trailing" secondItem="DdW-JR-rOu" secondAttribute="trailing" id="YJ5-Zw-zKx"/>
+                            <constraint firstItem="Gjk-9a-23h" firstAttribute="bottom" secondItem="DdW-JR-rOu" secondAttribute="top" id="g5l-vt-8JD"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="DdW-JR-rOu" secondAttribute="bottom" constant="-54" id="i6B-Eq-VJh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="juy-S9-5Pk"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="yearContainer" destination="YaP-Tf-V3j" id="yM3-Lv-w8z"/>
-                        <outlet property="yearScroll" destination="8gD-xQ-oCc" id="Wjw-jJ-Haa"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="listtocalendar" id="dzc-nc-4i5"/>
+                        <segue destination="L5n-i0-W4x" kind="presentation" identifier="eventtoday" id="XqT-Fw-H1N"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ABB-o4-zNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ayd-VP-JoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1665.217391304348" y="-630.13392857142856"/>
+            <point key="canvasLocation" x="-204" y="-2308"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -66,52 +107,115 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixa-5G-cfQ" customClass="CalendarView" customModule="KDCalendar">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="341"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="วันสำคัญ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-hs-8Ep">
-                                <rect key="frame" x="50" y="133" width="274" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="วันที่" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-hs-8Ep">
+                                <rect key="frame" x="144" y="139" width="86" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="kf7-l5-0Ad"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="41"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5J-uK-nz4">
-                                <rect key="frame" x="230" y="53" width="107" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5k-CP-zOt">
+                                <rect key="frame" x="10" y="44" width="98" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="o6e-45-4F2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="20"/>
+                                <state key="normal" title="วันสำคัญประจำเดือน"/>
+                                <connections>
+                                    <action selector="btnActionEventList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="92i-1L-A38"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันที่" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFI-HT-SLl">
+                                <rect key="frame" x="0.0" y="218" width="375" height="21"/>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เดือน" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cv-6b-Rhz">
+                                <rect key="frame" x="16" y="275" width="359" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="E84-Sg-MC6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="41"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5J-uK-nz4">
+                                <rect key="frame" x="268" y="44" width="107" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="107" id="xaA-MY-7B3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="20"/>
+                                <state key="normal" title="ตั้งค่า"/>
                                 <connections>
                                     <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3xv-Cd-Uvf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5k-CP-zOt">
-                                <rect key="frame" x="28" y="53" width="99" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="spacialDayList"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันสำคัญ" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5U-Qw-r8E">
+                                <rect key="frame" x="0.0" y="109" width="375" height="21"/>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EH5-ci-ORw">
+                                <rect key="frame" x="268" y="695" width="107" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="Xre-0a-p5R"/>
+                                    <constraint firstAttribute="width" constant="107" id="dNC-GI-YRD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="20"/>
+                                <state key="normal" title="เพิ่มบันทึก"/>
                                 <connections>
-                                    <action selector="listShow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HAU-7c-Lzh"/>
+                                    <action selector="btnaddEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGA-YB-0YU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ixa-5G-cfQ" secondAttribute="bottom" id="CYg-LX-GE3"/>
-                            <constraint firstItem="ixa-5G-cfQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QIe-1f-pVV"/>
-                            <constraint firstItem="ixa-5G-cfQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="282" id="iyQ-uR-4QO"/>
-                            <constraint firstItem="ixa-5G-cfQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lIH-CL-y9A"/>
-                            <constraint firstItem="ixa-5G-cfQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sS1-Ax-O57"/>
+                            <constraint firstItem="7cv-6b-Rhz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0Z3-Zd-vr0"/>
+                            <constraint firstAttribute="trailing" secondItem="ixa-5G-cfQ" secondAttribute="trailing" id="6MF-GD-XbL"/>
+                            <constraint firstAttribute="top" secondItem="7cv-6b-Rhz" secondAttribute="bottom" constant="-326" id="Bih-yo-w2C"/>
+                            <constraint firstItem="c5U-Qw-r8E" firstAttribute="trailing" secondItem="oFI-HT-SLl" secondAttribute="trailing" id="E3p-Ft-68h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EH5-ci-ORw" secondAttribute="bottom" constant="26" id="GgI-7T-595"/>
+                            <constraint firstItem="c5U-Qw-r8E" firstAttribute="trailing" secondItem="w5J-uK-nz4" secondAttribute="trailing" id="Hd9-Fc-EP4"/>
+                            <constraint firstItem="c5U-Qw-r8E" firstAttribute="leading" secondItem="ixa-5G-cfQ" secondAttribute="leading" id="Hk5-ch-5iP"/>
+                            <constraint firstItem="EH5-ci-ORw" firstAttribute="top" secondItem="ixa-5G-cfQ" secondAttribute="bottom" constant="20" id="Itd-YQ-q5g"/>
+                            <constraint firstItem="g5k-CP-zOt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kcw-kD-e1B"/>
+                            <constraint firstItem="7cv-6b-Rhz" firstAttribute="trailing" secondItem="oFI-HT-SLl" secondAttribute="trailing" id="PPC-zL-XdM"/>
+                            <constraint firstItem="c5U-Qw-r8E" firstAttribute="trailing" secondItem="ixa-5G-cfQ" secondAttribute="trailing" id="QVo-xs-5oH"/>
+                            <constraint firstItem="c5U-Qw-r8E" firstAttribute="leading" secondItem="oFI-HT-SLl" secondAttribute="leading" id="Qg7-Fe-Cq1"/>
+                            <constraint firstItem="EH5-ci-ORw" firstAttribute="trailing" secondItem="ixa-5G-cfQ" secondAttribute="trailing" id="YjO-ZH-JPA"/>
+                            <constraint firstItem="f1U-hs-8Ep" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="dA6-6E-ElS"/>
+                            <constraint firstItem="ixa-5G-cfQ" firstAttribute="centerX" secondItem="f1U-hs-8Ep" secondAttribute="centerX" id="eJ5-eP-Z4Q"/>
+                            <constraint firstItem="ixa-5G-cfQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fts-ao-IPL"/>
+                            <constraint firstItem="7cv-6b-Rhz" firstAttribute="top" secondItem="oFI-HT-SLl" secondAttribute="bottom" constant="36" id="kLg-TO-M3y"/>
+                            <constraint firstItem="g5k-CP-zOt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="keA-oK-2rS"/>
+                            <constraint firstItem="c5U-Qw-r8E" firstAttribute="top" secondItem="g5k-CP-zOt" secondAttribute="bottom" constant="8" symbolic="YES" id="rdr-4W-5d3"/>
+                            <constraint firstItem="oFI-HT-SLl" firstAttribute="top" secondItem="f1U-hs-8Ep" secondAttribute="bottom" constant="8" symbolic="YES" id="xxk-pc-N14"/>
+                            <constraint firstItem="ixa-5G-cfQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="334" id="y6v-jd-aPJ"/>
+                            <constraint firstItem="g5k-CP-zOt" firstAttribute="bottom" secondItem="w5J-uK-nz4" secondAttribute="bottom" id="y78-lU-DLO"/>
+                            <constraint firstItem="g5k-CP-zOt" firstAttribute="top" secondItem="w5J-uK-nz4" secondAttribute="top" id="zt7-dj-ABC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="ixa-5G-cfQ" id="gUI-YL-Fqg"/>
-                        <outlet property="showTitle" destination="f1U-hs-8Ep" id="oqW-UU-90N"/>
+                        <outlet property="daysLabel" destination="f1U-hs-8Ep" id="IFa-1v-Jit"/>
+                        <outlet property="fullDaysLabel" destination="oFI-HT-SLl" id="fhO-9Z-rKC"/>
+                        <outlet property="monthLabel" destination="7cv-6b-Rhz" id="Cn8-nZ-2xp"/>
+                        <outlet property="spacialDayLabel" destination="c5U-Qw-r8E" id="cPv-BR-Qu9"/>
                         <segue destination="L5n-i0-W4x" kind="presentation" identifier="detailView" id="SEU-ro-epg"/>
+                        <segue destination="ecK-sB-wz3" kind="presentation" identifier="calendartoList" id="5Av-mL-Kds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="-2231.5270935960593"/>
+            <point key="canvasLocation" x="1624.8" y="-2243.3497536945815"/>
         </scene>
         <!--Day View Controller-->
         <scene sceneID="ONq-1V-cEi">
@@ -180,32 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jq5-rH-oPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="-678.32512315270935"/>
-        </scene>
-        <!--Event View Controller-->
-        <scene sceneID="1eT-Yx-bla">
-            <objects>
-                <viewController id="DXX-Yw-Rdh" customClass="EventViewController" customModule="calendar184" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="25S-8u-UTp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvv-iG-ztK">
-                                <rect key="frame" x="252" y="44" width="107" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
-                                <connections>
-                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nuN-i0-2Mk"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="MRS-hG-wMQ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CLM-NK-KF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1506" y="-2305"/>
+            <point key="canvasLocation" x="-578" y="-753"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="ZKF-WM-HAq">
@@ -236,18 +315,48 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="calendarView" destination="14g-Vd-w0I" id="QmH-tz-itV"/>
-                        <segue destination="L5n-i0-W4x" kind="presentation" identifier="loadDataToShowDay" id="Sg7-n5-okN"/>
+                        <segue destination="WCh-La-13Q" kind="presentation" identifier="loadDataToLogin" id="Nm7-Nk-GuJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F1q-tB-odU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1505" y="-1490"/>
+            <point key="canvasLocation" x="-2748" y="-1490"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="E94-om-XFM">
+            <objects>
+                <viewController id="WCh-La-13Q" customClass="LoginViewController" customModule="calendar184" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FiL-uX-UoV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf2-6T-Bke">
+                                <rect key="frame" x="91" y="391" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="login with facebook"/>
+                                <connections>
+                                    <action selector="loginwithfacebook:" destination="WCh-La-13Q" eventType="touchUpInside" id="DHl-ba-lxp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eVY-8C-7cM"/>
+                    </view>
+                    <connections>
+                        <segue destination="L5n-i0-W4x" kind="presentation" identifier="logintoday" id="0rF-yE-IpH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rp1-h3-WI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1377" y="-1490"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image" width="261" height="483"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="5Av-mL-Kds"/>
         <segue reference="SEU-ro-epg"/>
+        <segue reference="dzc-nc-4i5"/>
     </inferredMetricsTieBreakers>
 </document>
