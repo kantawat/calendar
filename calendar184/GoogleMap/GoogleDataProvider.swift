@@ -7,7 +7,7 @@ typealias PlacesCompletion = ([GooglePlace]) -> Void
 typealias PhotoCompletion = (UIImage?) -> Void
 
 class GoogleDataProvider {
-    let googleApiKey = "AIzaSyBxSOMnY4f3VDPI9_TjBkaGGygUmtmmVtg"
+    let googleApiKey = "AIzaSyAZs5zGoVAQAmHATRc5yfHyKqp2f8UcUzs"
     private var photoCache: [String: UIImage] = [:]
     private var placesTask: URLSessionDataTask?
     private var session: URLSession {

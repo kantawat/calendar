@@ -11,14 +11,15 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     var month = NSDate()
     var fulldayToday = fullDay(date:NSDate())
     var ref: DatabaseReference!
+
     
-    @IBOutlet weak var spacialDayLabel: UILabel!
-    @IBOutlet weak var daysLabel: UILabel!
-    @IBOutlet weak var fullDaysLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
-    
+    @IBOutlet weak var fullDaysLabel: UILabel!
+    @IBOutlet weak var daysLabel: UILabel!
+    @IBOutlet weak var spacialDayLabel: UILabel!
     
     @IBOutlet weak var calendarView: CalendarView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -26,22 +27,12 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         initLabel()
         initCalendarView()
     }
-    
-    @IBAction func next(_ sender: UIButton) {
-//        let alert = UIAlertController(title: "",
-//                                      message: "After 5 seconds ",
-//                                      preferredStyle: .alert)
-//
-//        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//        appDelegate?.scheduleNotification(notificationType: "Local Notification")
-//        }
-//
-//        alert.addAction(okAction)
-//        present(alert, animated: true, completion: nil)
-        settingDialog()
-        
+    @IBAction func onSetting(_ sender: Any) {
+        performSegue(withIdentifier: "calendartoprofile",sender: self)
+//        settingDialog()
     }
+
+
     @IBAction func btnActionEventList(_ sender: UIButton) {
         monthEvent = getEventMonth(date: self.month)
         performSegue(withIdentifier: "calendartoList",sender: self)
@@ -55,7 +46,7 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
         spacialDayLabel.text = getEventDay(date: fulldayToday.date)
         daysLabel.text = getdateStrtoformatStr(datestr : fulldayToday.day)
         fullDaysLabel.text = fulldayToday.fulldayStr
-        monthLabel.text = "เดือน\(arrShortMonth[fulldayToday.month-1]) พ.ศ \(fulldayToday.year)"
+        monthLabel.text = "เดือน\(arrShortMonth[fulldayToday.month-1]) \(fulldayToday.year)"
     }
     
     func initCalendarView() {

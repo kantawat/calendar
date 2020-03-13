@@ -10,7 +10,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     private let locationManager = CLLocationManager()
     private let dataProvider = GoogleDataProvider()
-    private let searchRadius: Double = 10000
+    private let searchRadius: Double = 100000
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self as! CLLocationManagerDelegate
@@ -21,14 +21,22 @@ class MapViewController: UIViewController {
     }
     private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
         mapView.clear()
-
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, word: searchMap) { places in
+        
+        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, word: "ไก่") { places in
             places.forEach {
                 let marker = PlaceMarker(place: $0)
                 
                 marker.map = self.mapView
             }
         }
+
+//        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, word: searchMap) { places in
+//            places.forEach {
+//                let marker = PlaceMarker(place: $0)
+//
+//                marker.map = self.mapView
+//            }
+//        }
     }
 
     @IBAction func backBtn(_ sender: UIButton) {

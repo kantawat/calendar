@@ -73,5 +73,28 @@ func getCurrentMillis(date:Date)->Int64 {
     return Int64(date.timeIntervalSince1970 * 1000)
 }
 
+func getDetailDay(date: NSDate) -> [String]{
+    var strlist = [String]()
+    let calendar = Calendar.current
+    
+    let date1 = calendar.startOfDay(for: "01-01-2020".toDateTime() as Date)
+    let date2 = calendar.startOfDay(for: date as Date)
+    
+    let components = calendar.dateComponents([.day], from: date1, to: date2)
+    let diffDay = components.day
+    print(components)
+    
+    let posnotlike = abs( diffDay! % notLikeList.count)
+    let notLike1 = notLikeList[posnotlike].year1
+    let notLike2 = notLikeList[posnotlike].year2
+    
+    let posgoodbad = abs( diffDay! % goodOrBadList.count)
+    
+    strlist.append(notLike1.nameThai)
+    strlist.append(notLike2.nameThai)
+    strlist.append(goodOrBadList[posgoodbad].name)
+    strlist.append(goodOrBadList[posgoodbad].type)
+    return strlist
+}
 
 

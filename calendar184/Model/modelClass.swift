@@ -9,7 +9,7 @@ import EventKit
 var initDate = "05-02-2019"
 var userUid = ""
 var userFullname = ""
-var userPic = ""
+var userPic = "https://www.matichon.co.th/wp-content/uploads/2019/03/Pic-Little-Wild_190308_0021.jpg"
 var searchMap = ""
 var initDay =  NSDate()
 var ChineseCalendar = "ChineseCalendar" //ChineseCalendar
@@ -33,6 +33,8 @@ class fullDay : NSObject {
     var month:Int
     var year:Int
     var fulldayStr:String = ""
+    var sub1dayStr:String = ""
+    var sub2dayStr:String = ""
     init(date: NSDate) {
         self.date = date
         self.day = Int(date.toString(dateFormat: "dd"))!
@@ -40,6 +42,45 @@ class fullDay : NSObject {
         self.month = Int(date.toString(dateFormat: "MM"))!
         self.year = Int(date.toString(dateFormat: "yyyy"))! + 543
         self.fulldayStr = "วัน\(arrWeekDay[weekDay-1]) ที่ \(day) \(arrMonth[month-1]) \(year)"
+        self.sub1dayStr = "วัน\(arrWeekDay[weekDay-1]) ที่ \(day)"
+        self.sub2dayStr = "\(arrMonth[month-1]) \(year)"
+    }
+    
+}
+
+class dayChinsesShow : NSObject {
+    var date:NSDate
+    var day:String = ""
+    var month:String = ""
+    var year:String = ""
+    var thaiyear:String = ""
+    var fulldayStr:String = ""
+    var sub1dayStr:String = ""
+    var sub2dayStr:String = ""
+    var notlike1:String = ""
+    var notlike2:String = ""
+    var goodbad:String = ""
+    var goodbadtype:String = ""
+    var spacials = [spacialDayFire]()
+    init(date: NSDate , day:String,month:String,year:String,thaiyear:String) {
+        self.date = date
+        self.day = day
+        self.month = month
+        self.year = year
+        self.thaiyear = thaiyear
+        self.fulldayStr = fullDay(date: date).fulldayStr
+        self.sub1dayStr = fullDay(date: date).sub1dayStr
+        self.sub2dayStr = fullDay(date: date).sub2dayStr
+        
+        var moredetail = getDetailDay(date: date)
+        self.notlike1 = moredetail[0]
+        self.notlike2 = moredetail[1]
+        self.goodbad = moredetail[2]
+        self.goodbadtype = moredetail[3]
+        
+        self.spacials = spacialDayList.filter {
+            (($0 ).monthChinese == Int(month)) && (($0 ).dayChinese == Int(day))
+        }
     }
     
 }
@@ -79,10 +120,12 @@ class spacialDayFire : NSObject {
     var dayChinese:Int
     var detail:[Int]
     var monthChinese:Int
+    var image:String = ""
     init(dict: [String: AnyObject]) {
         dayChinese = dict["day_chinese"] as! Int
         name = dict["chinese_event_name"] as! String
         monthChinese = dict["month_chinese"] as! Int
+        image = dict["image"] as!String
         
         var list = [Int]()
         if((dict["day_details"]) != nil){
@@ -107,6 +150,7 @@ class DetailMonth : NSObject {
 }
 class chineseCalendarFire : NSObject {
     var nameYear:String
+    var nameChineseYear:String
     var nameThaiYear:String
     var amountMonth:Int
     var amountDays:Int
@@ -116,6 +160,7 @@ class chineseCalendarFire : NSObject {
     init(dict: [String: AnyObject]) {
         nameYear = dict["nameYear"] as! String
         nameThaiYear = dict["nameThaiYear"] as! String
+        nameChineseYear = dict["nameChineseYear"] as! String
         amountMonth = dict["amountMonth"] as! Int
         amountDays = dict["amountDays"] as! Int
         startDate = dict["startDate"] as! String

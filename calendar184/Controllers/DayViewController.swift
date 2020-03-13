@@ -5,10 +5,9 @@ import EventKit
 
 class DayViewController: UIViewController {
 
+//    var arrspacialDay = [spacialDayFire]()
     
-    var chineseDay:[String] = []
-    var chineseNotlike:[String] = []
-    var arrspacialDay = [spacialDayFire]()
+    var dayChiese = dayChinsesShow(date: NSDate(), day:"",month:"",year:"",thaiyear:"")
     
     var moreDetailView:UIView = UIView()
     var moreDetailConstraint: NSLayoutConstraint?
@@ -31,15 +30,14 @@ class DayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chineseDay = self.getChineseDay()
-        chineseNotlike = self.getDetailDay()
+        dayChiese = getChineseDay()
         
         view.addSubview(scrollView)
         scrollView.addSubview(scrollViewContainer)
         scrollViewContainer.addArrangedSubview(self.setChineseDay())
         
         scrollViewContainer.addArrangedSubview(self.setDetail())
-        if(self.checkMoreDetailDay()){
+        if(dayChiese.spacials.count > 0){
             scrollViewContainer.addArrangedSubview(self.setMoreDetail())
         }
 
@@ -63,41 +61,101 @@ class DayViewController: UIViewController {
     
     func setChineseDay() -> UIView{
         let view = UIView()
-        view.heightAnchor.constraint(equalToConstant:800).isActive = true
+        view.heightAnchor.constraint(equalToConstant:812).isActive = true
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "bg1")
+        
+        var imagepath = ""
+        if(dayChiese.spacials.count > 0){
+            imagepath = dayChiese.spacials[0].image
+        }else if(dayChiese.goodbadtype == "good"){
+            imagepath = "gooddaybg"
+        }else{
+            imagepath = "baddaybg"
+        }
+        backgroundImage.image = UIImage(named: imagepath)
         backgroundImage.contentMode = UIViewContentMode.scaleToFill
         view.insertSubview(backgroundImage, at: 0)
         
-        let button = UIButton(frame: CGRect(x: 30, y: 80, width: 100, height: 30))
-        button.backgroundColor = .green
-        button.setTitle("Calendar", for: .normal)
+        let button = UIButton(frame: CGRect(x: 48, y: 99, width: 40, height: 40))
+        let image = UIImage(named: "backbg") as UIImage?
+        button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         view.addSubview(button)
-
-        let Fulllabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        Fulllabel.center = CGPoint(x: 180, y: 370)
-        Fulllabel.textAlignment = .center
-        Fulllabel.text = initDay.toString(dateFormat: "EEEE, MMM d, yyyy")
-        view.addSubview(Fulllabel)
-
-        let chineselabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        chineselabel.center = CGPoint(x: 180, y: 420)
-        chineselabel.textAlignment = .center
-        chineselabel.text = self.chineseDay[0]
-        view.addSubview(chineselabel)
-
-        let eventlabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        eventlabel.center = CGPoint(x: 180, y: 500)
-        eventlabel.textAlignment = .center
-        eventlabel.text = getEventDay(date: initDay)
-        eventlabel.numberOfLines = 0
-        view.addSubview(eventlabel)
+        
+        let button2 = UIButton(frame: CGRect(x: 278, y: 99, width: 40, height: 40))
+        let image2 = UIImage(named: "seenote") as UIImage?
+        button2.setImage(image2, for: .normal)
+        button2.addTarget(self, action: #selector(button2Action), for: .touchUpInside)
+        view.addSubview(button2)
+    
+        let Full1label = UILabel(frame: CGRect(x: 112, y: 94, width: 143, height: 21))
+        Full1label.textAlignment = .center
+        Full1label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full1label.text = dayChiese.sub1dayStr
+        view.addSubview(Full1label)
+        
+        let Full2label = UILabel(frame: CGRect(x: 112, y: 123, width: 143, height: 21))
+        Full2label.textAlignment = .center
+        Full2label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full2label.text = dayChiese.sub2dayStr
+        view.addSubview(Full2label)
+        
+        let Full3label = UILabel(frame: CGRect(x: 42, y: 450, width: 38, height: 21))
+        Full3label.textAlignment = .center
+        Full3label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full3label.text = "วัน"
+        view.addSubview(Full3label)
+        
+        let Full4label = UILabel(frame: CGRect(x: 42, y: 521, width: 38, height: 21))
+        Full4label.textAlignment = .center
+        Full4label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full4label.text = dayChiese.day
+        view.addSubview(Full4label)
+        
+        let Full5label = UILabel(frame: CGRect(x: 42, y: 589, width: 38, height: 21))
+        Full5label.textAlignment = .center
+        Full5label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full5label.text = "เดือน"
+        view.addSubview(Full5label)
+        
+        let Full6label = UILabel(frame: CGRect(x: 42, y: 657, width: 38, height: 21))
+        Full6label.textAlignment = .center
+        Full6label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full6label.text = dayChiese.month
+        view.addSubview(Full6label)
+        
+        let Full7label = UILabel(frame: CGRect(x: 295, y: 450, width: 38, height: 21))
+        Full7label.textAlignment = .center
+        Full7label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full7label.text = "ปี"
+        view.addSubview(Full7label)
+        
+        let Full8label = UILabel(frame: CGRect(x: 295, y: 521, width: 38, height: 21))
+        Full8label.textAlignment = .center
+        Full8label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full8label.text = dayChiese.thaiyear
+        view.addSubview(Full8label)
+        
+        let Full9label = UILabel(frame: CGRect(x: 295, y: 589, width: 38, height: 21))
+        Full9label.textAlignment = .center
+        Full9label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full9label.text = String(dayChiese.year.prefix(1))
+        view.addSubview(Full9label)
+        
+        let Full10label = UILabel(frame: CGRect(x: 295, y: 657, width: 38, height: 21))
+        Full10label.textAlignment = .center
+        Full10label.font = UIFont(name: "JSChawlewhieng", size: 26.00)
+        Full10label.text = "年"
+        view.addSubview(Full10label)
+    
         
         return view
     }
     @objc func buttonAction(sender: UIButton!) {
         performSegue(withIdentifier: "calendarView",sender: self)
+    }
+    @objc func button2Action(sender: UIButton!) {
+        settingDialog()
     }
     
     
@@ -113,7 +171,7 @@ class DayViewController: UIViewController {
         label1.center = CGPoint(x: 100, y: 25)
         label1.textAlignment = .center
         label1.textColor = .white
-        label1.text = self.chineseNotlike[0]
+        label1.text = dayChiese.notlike1
         view.addSubview(label1)
         
         let label2 = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
@@ -127,7 +185,7 @@ class DayViewController: UIViewController {
         label3.center = CGPoint(x: 100, y: 65)
         label3.textAlignment = .center
         label3.textColor = .white
-        label3.text = self.chineseNotlike[1]
+        label3.text = dayChiese.notlike2
         view.addSubview(label3)
         
         
@@ -136,7 +194,7 @@ class DayViewController: UIViewController {
         label4.textAlignment = .center
         label4.textColor = .white
         label4.numberOfLines = 0
-        label4.text = self.chineseNotlike[2]
+        label4.text = dayChiese.goodbad
         view.addSubview(label4)
         
         return view
@@ -148,7 +206,7 @@ class DayViewController: UIViewController {
         moreDetailView.backgroundColor = .white
         
         var arrbeg = [Int]()
-        for x in self.arrspacialDay {
+        for x in dayChiese.spacials {
            
             arrbeg += x.detail
         }
@@ -243,11 +301,8 @@ class DayViewController: UIViewController {
         moreDetailConstraint!.isActive = true
         moreDetailView.backgroundColor = .white
         
-        let arrspacialDay = spacialDayList.filter {
-            (($0 ).monthChinese == Int(self.chineseDay[2])) && (($0 ).dayChinese == Int(self.chineseDay[1]))
-        }
         var arrbeg = [Int]()
-        for x in arrspacialDay {
+        for x in dayChiese.spacials {
             
             arrbeg += x.detail
         }
@@ -266,8 +321,7 @@ class DayViewController: UIViewController {
         return moreDetailView
     }
 
-    func getChineseDay() -> [String]{
-        var strlist = [String]()
+    func getChineseDay() -> dayChinsesShow {
         let calendar = Calendar.current
         let date1 = calendar.startOfDay(for: initDate.toDateTime() as Date)
         let date2 = calendar.startOfDay(for: initDay as Date)
@@ -277,48 +331,28 @@ class DayViewController: UIViewController {
         for year in chineseCalendarList{
             for i  in year.detailMonths{
                 if(diffDay - i.amountDay <= 0 ){
-                    strlist.append("วันที่ \(diffDay) เดือน \(i.nameMonth) ปี \(year.nameThaiYear)")
-                    strlist.append("\(diffDay)")
-                    strlist.append(i.nameMonth)
-                    return strlist;
+                    return dayChinsesShow(date: initDay,
+                                               day: String(diffDay),
+                                               month: String(i.nameMonth),
+                                               year: String(year.nameChineseYear),
+                                               thaiyear:String(year.nameThaiYear))
                 }else{
                     diffDay = (diffDay - i.amountDay)
                 }
             }
         }
-        return []
+        return dayChinsesShow(date: NSDate(), day:"",month:"",year:"",thaiyear:"")
     }
-    func getDetailDay() -> [String]{
-        var strlist = [String]()
-        let calendar = Calendar.current
-
-        let date1 = calendar.startOfDay(for: "01-01-2020".toDateTime() as Date)
-        let date2 = calendar.startOfDay(for: initDay as Date)
-
-        let components = calendar.dateComponents([.day], from: date1, to: date2)
-        let diffDay = components.day
-        print(components)
-
-        let posnotlike = abs( diffDay! % notLikeList.count)
-        let notLike1 = notLikeList[posnotlike].year1
-        let notLike2 = notLikeList[posnotlike].year2
-
-        let posgoodbad = abs( diffDay! % goodOrBadList.count)
-
-        strlist.append(notLike1.nameThai)
-        strlist.append(notLike2.nameThai)
-        strlist.append(goodOrBadList[posgoodbad].name)
-        return strlist
-    }
-    func checkMoreDetailDay() -> Bool{
-        self.arrspacialDay = spacialDayList.filter {
-            (($0 ).monthChinese == Int(self.chineseDay[2])) && (($0 ).dayChinese == Int(self.chineseDay[1]))
-        }
-        if(!self.arrspacialDay.isEmpty){
-            return true
-        }else{
-            return false
-        }
-    }
+    
+//    func checkMoreDetailDay() -> Bool{
+//        self.arrspacialDay = spacialDayList.filter {
+//            (($0 ).monthChinese == Int(dayChiese.month)) && (($0 ).dayChinese == Int(dayChiese.day))
+//        }
+//        if(!self.arrspacialDay.isEmpty){
+//            return true
+//        }else{
+//            return false
+//        }
+//    }
 
 }

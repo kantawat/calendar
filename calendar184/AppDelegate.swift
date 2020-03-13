@@ -15,7 +15,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let googleApiKey = "AIzaSyBxSOMnY4f3VDPI9_TjBkaGGygUmtmmVtg"
+    let googleApiKey = "AIzaSyAZs5zGoVAQAmHATRc5yfHyKqp2f8UcUzs"
     let notificationCenter = UNUserNotificationCenter.current()
 
 

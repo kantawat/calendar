@@ -31,9 +31,10 @@
 		FF3AA5D324156332006ED2AC /* LoginConViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AA5D224156332006ED2AC /* LoginConViewController.swift */; };
 		FF45C93D23E0BDC2003E87B8 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45C93C23E0BDC2003E87B8 /* DayViewController.swift */; };
 		FF54C70E240A7888009B5300 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF54C70D240A7888009B5300 /* LoginViewController.swift */; };
+		FF5C6244241952E9003E5F0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5C6243241952E9003E5F0D /* SettingViewController.swift */; };
+		FF5C624624195AD7003E5F0D /* JS-Chawlewhieng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF76710E24100C59000E4051 /* JS-Chawlewhieng.ttf */; };
 		FF6AA8882406D07900E3B42A /* ListEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AA8872406D07900E3B42A /* ListEventViewController.swift */; };
 		FF6AA88C2406D93700E3B42A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AA88B2406D93700E3B42A /* TableViewCell.swift */; };
-		FF76710F24101932000E4051 /* JS-Chawlewhieng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF76710E24100C59000E4051 /* JS-Chawlewhieng.ttf */; };
 		FF7B3E442414034200978E96 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B3E432414034200978E96 /* util.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		FF3AA5D224156332006ED2AC /* LoginConViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConViewController.swift; sourceTree = "<group>"; };
 		FF45C93C23E0BDC2003E87B8 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		FF54C70D240A7888009B5300 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FF5C6243241952E9003E5F0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		FF6AA8872406D07900E3B42A /* ListEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventViewController.swift; sourceTree = "<group>"; };
 		FF6AA88B2406D93700E3B42A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FF76710E24100C59000E4051 /* JS-Chawlewhieng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JS-Chawlewhieng.ttf"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				FF54C70D240A7888009B5300 /* LoginViewController.swift */,
 				FF3AA5D024156310006ED2AC /* RegisterViewController.swift */,
 				FF3AA5D224156332006ED2AC /* LoginConViewController.swift */,
+				FF5C6243241952E9003E5F0D /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -381,7 +384,7 @@
 				E5F3E9D9239FDA9F003D9B71 /* LaunchScreen.storyboard in Resources */,
 				FF12959523E1E1C1002047E8 /* GoogleService-Info.plist in Resources */,
 				E5F3E9D6239FDA9F003D9B71 /* Assets.xcassets in Resources */,
-				FF76710F24101932000E4051 /* JS-Chawlewhieng.ttf in Resources */,
+				FF5C624624195AD7003E5F0D /* JS-Chawlewhieng.ttf in Resources */,
 				E5F3E9D4239FDA9A003D9B71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +563,7 @@
 				E5F3E9CF239FDA9A003D9B71 /* AppDelegate.swift in Sources */,
 				FF3AA5D124156310006ED2AC /* RegisterViewController.swift in Sources */,
 				FF12959B23E301B7002047E8 /* PlaceMarker.swift in Sources */,
+				FF5C6244241952E9003E5F0D /* SettingViewController.swift in Sources */,
 				FF45C93D23E0BDC2003E87B8 /* DayViewController.swift in Sources */,
 				FF12959923E2F021002047E8 /* MapViewController.swift in Sources */,
 			);
