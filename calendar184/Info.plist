@@ -79,5 +79,10 @@
 	<array>
 		<string>JS-Chawlewhieng.ttf</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+    <string>comgooglemaps</string>
+    <string>comgooglemaps-x-callback</string>
+    </array>
 </dict>
 </plist>

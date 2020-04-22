@@ -145,3 +145,5 @@ func settingDialog() {
     
     alert.showInfo(userFullname, subTitle: "", circleIconImage: makeRoundImg(image: image!))
 }
+
+

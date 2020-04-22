@@ -39,7 +39,9 @@ class ViewController: UIViewController , CalendarViewDataSource , CalendarViewDe
     }
     
     @IBAction func btnaddEvent(_ sender: UIButton) {
-        addEventDialog(ref: self.ref, calendarView: self.calendarView )
+        
+        performSegue(withIdentifier: "calendartocreatenote",sender: self)
+//        addEventDialog(ref: self.ref, calendarView: self.calendarView )
     }
     
     func initLabel() {

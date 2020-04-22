@@ -2,10 +2,13 @@
 import UIKit
 import Firebase
 import EventKit
+import SCLAlertView
 
 class DayViewController: UIViewController {
 
 //    var arrspacialDay = [spacialDayFire]()
+    
+//    @IBOutlet weak var tableView: UITableView!
     
     var dayChiese = dayChinsesShow(date: NSDate(), day:"",month:"",year:"",thaiyear:"")
     
@@ -53,12 +56,11 @@ class DayViewController: UIViewController {
         scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         // this is important for scrolling
         scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-    }
-    
-    
-    
-    
-    
+        
+//        tableView.delegate = self as! UITableViewDelegate
+//        tableView.dataSource = self as! UITableViewDataSource
+        }
+
     func setChineseDay() -> UIView{
         let view = UIView()
         view.heightAnchor.constraint(equalToConstant:812).isActive = true
@@ -76,13 +78,13 @@ class DayViewController: UIViewController {
         backgroundImage.contentMode = UIViewContentMode.scaleToFill
         view.insertSubview(backgroundImage, at: 0)
         
-        let button = UIButton(frame: CGRect(x: 48, y: 99, width: 40, height: 40))
+        let button = UIButton(frame: CGRect(x: 10, y: 30, width: 40, height: 40))
         let image = UIImage(named: "backbg") as UIImage?
         button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         view.addSubview(button)
         
-        let button2 = UIButton(frame: CGRect(x: 278, y: 99, width: 40, height: 40))
+        let button2 = UIButton(frame: CGRect(x: 320, y: 30, width: 40, height: 40))
         let image2 = UIImage(named: "seenote") as UIImage?
         button2.setImage(image2, for: .normal)
         button2.addTarget(self, action: #selector(button2Action), for: .touchUpInside)
@@ -155,34 +157,49 @@ class DayViewController: UIViewController {
         performSegue(withIdentifier: "calendarView",sender: self)
     }
     @objc func button2Action(sender: UIButton!) {
-        settingDialog()
+        performSegue(withIdentifier: "caltomyevent",sender: self)
     }
     
     
     func setDetail() -> UIView{
         let view = UIView()
-        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 250).isActive = true
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "bg2")
+        backgroundImage.image = UIImage(named: "topbg")
         backgroundImage.contentMode = UIViewContentMode.scaleToFill
         view.insertSubview(backgroundImage, at: 0)
         
+        let backgroundImage1 = UIImageView(frame: CGRect(x: 40, y: 100, width: 290, height: 130))
+        backgroundImage1.image = UIImage(named: "startbg")
+        backgroundImage1.contentMode = UIViewContentMode.scaleToFill
+        view.addSubview(backgroundImage1)
+        
+        let Image1 = UIImageView(frame: CGRect(x: 100, y: 125, width: 40, height: 40))
+        Image1.image = UIImage(named: dayChiese.notlike1eng)
+         Image1.contentMode = UIViewContentMode.scaleToFill
+        view.addSubview(Image1)
+        
         let label1 = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label1.center = CGPoint(x: 100, y: 25)
+        label1.center = CGPoint(x: 70, y: 125)
         label1.textAlignment = .center
         label1.textColor = .white
         label1.text = dayChiese.notlike1
         view.addSubview(label1)
         
         let label2 = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label2.center = CGPoint(x: 100, y: 45)
+        label2.center = CGPoint(x: 85, y: 150)
         label2.textAlignment = .center
         label2.textColor = .white
         label2.text = "ไม่ถูกกับ"
         view.addSubview(label2)
         
+        let Image2 = UIImageView(frame: CGRect(x: 100, y: 175, width: 40, height: 40))
+         Image2.image = UIImage(named: dayChiese.notlike2eng)
+         Image2.contentMode = UIViewContentMode.scaleToFill
+        view.addSubview(Image2)
+        
         let label3 = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label3.center = CGPoint(x: 100, y: 65)
+        label3.center = CGPoint(x: 70, y: 175)
         label3.textAlignment = .center
         label3.textColor = .white
         label3.text = dayChiese.notlike2
@@ -190,7 +207,7 @@ class DayViewController: UIViewController {
         
         
         let label4 = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 100))
-        label4.center = CGPoint(x: 230, y: 45)
+        label4.center = CGPoint(x: 250, y: 170)
         label4.textAlignment = .center
         label4.textColor = .white
         label4.numberOfLines = 0
@@ -203,22 +220,33 @@ class DayViewController: UIViewController {
     func setMoreDetail() -> UIView{
         moreDetailConstraint = moreDetailView.heightAnchor.constraint(equalToConstant: 100)
         moreDetailConstraint!.isActive = true
-        moreDetailView.backgroundColor = .white
+        moreDetailView.backgroundColor = .clear
+        
         
         var arrbeg = [Int]()
         for x in dayChiese.spacials {
-           
+
             arrbeg += x.detail
         }
         let beg = Array(Set(arrbeg)).sorted()
-        
+
         for (index, element) in beg.enumerated() {
             let beg = begList[element]
-            let button = UIButton(frame: CGRect(x: 30 + (110 * index), y: 30, width: 100, height: 30))
-            button.backgroundColor = .green
+            let image = UIImage(named: "unactivebt")
+            
+            let button = UIButton(frame: CGRect(x: 30 + (110 * index), y: 50, width: 100, height: 30))
             button.setTitle(beg.name, for: .normal)
+            button.setImage(image, for: .normal)
             button.addTarget(self, action: #selector(buttonTabAction), for: .touchUpInside)
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+            label.textAlignment = .center
+            label.textColor = .white
+            label.text = beg.name
+           
+             button.addSubview(label)
             moreDetailView.addSubview(button)
+            
         }
         
 
@@ -228,13 +256,16 @@ class DayViewController: UIViewController {
     @objc func buttonTabAction(sender: UIButton!) {
         for x in moreDetailView.subviews{
             if let btn = x as? UIButton {
-                btn.backgroundColor = .green
+                let images = UIImage(named: "unactivebt")
+                btn.setImage(images, for: .normal)
             }else{
                 x.removeFromSuperview()
             }
             
         }
-        sender.backgroundColor = .blue
+        let imagee = UIImage(named: "activebt")
+        sender.setImage(imagee, for: .normal)
+//        sender.backgroundColor = .blue
         
         let arrBeg = begList.filter {
             (($0 ).name == sender.titleLabel?.text)
@@ -263,10 +294,11 @@ class DayViewController: UIViewController {
                     let row = (index > 2 ? (hightStart + (150 * (index/3))) : hightStart )
                     let col = (widthStart + (110 * (index % 3)))
 
-                    let image = UIImage(named: "Image")
+                    let image = UIImage(named: elementlist.img)
                     let btn = UIButton(frame: CGRect(x: col, y: row, width: 100, height: 70))
                     btn.setTitle(elementlist.name, for: .normal)
                     btn.setImage(image, for: .normal)
+                    btn.tag = index
                     btn.addTarget(self, action: #selector(buttonImgAction), for: .touchUpInside)
                     moreDetailView.addSubview(btn)
 
@@ -291,9 +323,50 @@ class DayViewController: UIViewController {
         
     }
     @objc func buttonImgAction(sender: UIButton!) {
-        sender.backgroundColor = .blue
-        searchMap = sender.titleLabel!.text!
-        performSegue(withIdentifier: "tomap",sender: self)
+        let img = UIImage(named: sender.titleLabel!.text!)!
+        itemDialog(img: img,name: sender.titleLabel!.text!)
+    }
+    func itemDialog(img:UIImage,name:String) {
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kCircleIconHeight: 50, kWindowWidth: screenWidth - 50,
+            kTitleFont: UIFont(name: "JSChawlewhieng", size: 28)!,
+            kTextFont: UIFont(name: "JSChawlewhieng", size: 20)!,
+            kButtonFont: UIFont(name: "JSChawlewhieng", size: 20)!,
+            showCloseButton: false
+        )
+        
+        let alert = SCLAlertView(appearance: appearance)
+        let reactsize = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: screenWidth - 50, height: 250))
+        let subview = UIView(frame: reactsize)
+        
+        
+        let reactsize4 = CGRect(origin: CGPoint(x: 20 ,y : 20 ), size: CGSize(width: 200, height: 100))
+        let label = UILabel(frame: reactsize4)
+        label.font = UIFont(name: "JSChawlewhieng", size: 20)!
+        label.text = "เหตุที่ต้องเป็นส้มสีทองก็เพราะ สีทอง เป็นสีแห่งความเป็นสิริมงคล" + "ไม่จำเป็นว่าต้องเป็นส้มสายพันธุ์พิเศษอะไร ขอให้มีเปลือกสีส้มหรือสีเหลืองทองก็เป็นอันใช้ได้"
+        label.numberOfLines = 0
+        subview.addSubview(label)
+        
+        
+        
+        
+        alert.customSubview = subview
+        alert.addButton("see map") {
+            searchMap = name
+            self.performSegue(withIdentifier: "tomap",sender: self)
+        }
+        alert.addButton("done") {}
+        
+        //        alert.addButton("Duration Button", backgroundColor: UIColor.brown, textColor: UIColor.yellow) {}
+        
+    //    var image: UIImage?
+    //    let url = NSURL(string: userPic)! as URL
+    //    if let imageData: NSData = NSData(contentsOf: url) {
+    //        image = UIImage(data: imageData as Data)
+    //    }
+        
+        alert.showInfo(name, subTitle: "", circleIconImage: makeRoundImg(image: img))
     }
     func MoreDetail() -> UIView{
         //        let view = UIView()

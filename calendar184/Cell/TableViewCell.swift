@@ -1,10 +1,4 @@
-//
-//  TableViewCell.swift
-//  calendar184
-//
-//  Created by Yuan Kan on 26/2/20.
-//  Copyright © 2020 kantawat. All rights reserved.
-//
+
 
 import UIKit
 

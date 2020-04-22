@@ -59,6 +59,8 @@ class dayChinsesShow : NSObject {
     var sub2dayStr:String = ""
     var notlike1:String = ""
     var notlike2:String = ""
+    var notlike1eng:String = ""
+    var notlike2eng:String = ""
     var goodbad:String = ""
     var goodbadtype:String = ""
     var spacials = [spacialDayFire]()
@@ -75,8 +77,10 @@ class dayChinsesShow : NSObject {
         var moredetail = getDetailDay(date: date)
         self.notlike1 = moredetail[0]
         self.notlike2 = moredetail[1]
-        self.goodbad = moredetail[2]
-        self.goodbadtype = moredetail[3]
+        self.notlike1eng = moredetail[2]
+        self.notlike2eng = moredetail[3]
+        self.goodbad = moredetail[4]
+        self.goodbadtype = moredetail[5]
         
         self.spacials = spacialDayList.filter {
             (($0 ).monthChinese == Int(month)) && (($0 ).dayChinese == Int(day))

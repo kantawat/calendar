@@ -3,6 +3,7 @@ import Foundation
 import CoreLocation
 import SwiftyJSON
 
+
 typealias PlacesCompletion = ([GooglePlace]) -> Void
 typealias PhotoCompletion = (UIImage?) -> Void
 
@@ -50,13 +51,9 @@ class GoogleDataProvider {
             }
             
             results.forEach {
-                let place = GooglePlace(dictionary: $0)
+                let place = GooglePlace(dictionary: $0,loctaion: coordinate)
+    
                 placesArray.append(place)
-//                if let reference = place.photoReference {
-//                    self.fetchPhotoFromReference(reference) { image in
-//                        place.photo = image
-//                    }
-//                }
             }
         }
         placesTask?.resume()

@@ -13,7 +13,6 @@
 		E5F3E9CF239FDA9A003D9B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9CE239FDA9A003D9B71 /* AppDelegate.swift */; };
 		E5F3E9D1239FDA9A003D9B71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9D0239FDA9A003D9B71 /* ViewController.swift */; };
 		E5F3E9D4239FDA9A003D9B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3E9D2239FDA9A003D9B71 /* Main.storyboard */; };
-		E5F3E9D6239FDA9F003D9B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F3E9D5239FDA9F003D9B71 /* Assets.xcassets */; };
 		E5F3E9D9239FDA9F003D9B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F3E9D7239FDA9F003D9B71 /* LaunchScreen.storyboard */; };
 		E5F3E9E4239FDA9F003D9B71 /* calendar184Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9E3239FDA9F003D9B71 /* calendar184Tests.swift */; };
 		E5F3E9EF239FDA9F003D9B71 /* calendar184UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F3E9EE239FDA9F003D9B71 /* calendar184UITests.swift */; };
@@ -36,6 +35,20 @@
 		FF6AA8882406D07900E3B42A /* ListEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AA8872406D07900E3B42A /* ListEventViewController.swift */; };
 		FF6AA88C2406D93700E3B42A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6AA88B2406D93700E3B42A /* TableViewCell.swift */; };
 		FF7B3E442414034200978E96 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B3E432414034200978E96 /* util.swift */; };
+		FFAB8028244A2ACC00EDF080 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB8027244A2ACC00EDF080 /* CreateNoteViewController.swift */; };
+		FFAB802F244A5AEE00EDF080 /* mapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB802E244A5AEE00EDF080 /* mapTableViewCell.swift */; };
+		FFAB8031244A863500EDF080 /* MyEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB8030244A863500EDF080 /* MyEventViewController.swift */; };
+		FFAB8033244A86F200EDF080 /* myEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAB8032244A86F200EDF080 /* myEventTableViewCell.swift */; };
+		FFD093DC244F1E4B0010852B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD093DB244F1E4A0010852B /* Assets.xcassets */; };
+		FFD093DF244F5A1E0010852B /* DaliyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD093DE244F5A1E0010852B /* DaliyViewController.swift */; };
+		FFD093E1244F5BAA0010852B /* Part1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD093E0244F5BAA0010852B /* Part1Cell.swift */; };
+		FFD093E3244F5BCD0010852B /* Part1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD093E2244F5BCD0010852B /* Part1Cell.xib */; };
+		FFD093E5244F64450010852B /* Part2Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD093E4244F64450010852B /* Part2Cell.xib */; };
+		FFD093E7244F64590010852B /* Part2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD093E6244F64590010852B /* Part2Cell.swift */; };
+		FFD093EA244F6F240010852B /* Part2twoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD093E8244F6F240010852B /* Part2twoCell.swift */; };
+		FFD093EB244F6F240010852B /* Part2twoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD093E9244F6F240010852B /* Part2twoCell.xib */; };
+		FFD093EE244F71C50010852B /* Part3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD093EC244F71C50010852B /* Part3Cell.swift */; };
+		FFD093EF244F71C50010852B /* Part3Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD093ED244F71C50010852B /* Part3Cell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +83,6 @@
 		E5F3E9CE239FDA9A003D9B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F3E9D0239FDA9A003D9B71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5F3E9D3239FDA9A003D9B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E5F3E9D5239FDA9F003D9B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5F3E9D8239FDA9F003D9B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5F3E9DA239FDA9F003D9B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5F3E9DF239FDA9F003D9B71 /* calendar184Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calendar184Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +109,20 @@
 		FF6AA88B2406D93700E3B42A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FF76710E24100C59000E4051 /* JS-Chawlewhieng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JS-Chawlewhieng.ttf"; sourceTree = "<group>"; };
 		FF7B3E432414034200978E96 /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
+		FFAB8027244A2ACC00EDF080 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
+		FFAB802E244A5AEE00EDF080 /* mapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapTableViewCell.swift; sourceTree = "<group>"; };
+		FFAB8030244A863500EDF080 /* MyEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventViewController.swift; sourceTree = "<group>"; };
+		FFAB8032244A86F200EDF080 /* myEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myEventTableViewCell.swift; sourceTree = "<group>"; };
+		FFD093DB244F1E4A0010852B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFD093DE244F5A1E0010852B /* DaliyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaliyViewController.swift; sourceTree = "<group>"; };
+		FFD093E0244F5BAA0010852B /* Part1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part1Cell.swift; sourceTree = "<group>"; };
+		FFD093E2244F5BCD0010852B /* Part1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part1Cell.xib; sourceTree = "<group>"; };
+		FFD093E4244F64450010852B /* Part2Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part2Cell.xib; sourceTree = "<group>"; };
+		FFD093E6244F64590010852B /* Part2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part2Cell.swift; sourceTree = "<group>"; };
+		FFD093E8244F6F240010852B /* Part2twoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part2twoCell.swift; sourceTree = "<group>"; };
+		FFD093E9244F6F240010852B /* Part2twoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part2twoCell.xib; sourceTree = "<group>"; };
+		FFD093EC244F71C50010852B /* Part3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3Cell.swift; sourceTree = "<group>"; };
+		FFD093ED244F71C50010852B /* Part3Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part3Cell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +201,8 @@
 		E5F3E9CD239FDA9A003D9B71 /* calendar184 */ = {
 			isa = PBXGroup;
 			children = (
+				FFD093DD244F59F30010852B /* Daliy */,
+				FFAB8029244A480700EDF080 /* Cell */,
 				FF54EEDF240582F7001FC7B9 /* Controllers */,
 				FF54EEDE240582D6001FC7B9 /* GoogleMap */,
 				FF54EEDD240582C1001FC7B9 /* Model */,
@@ -182,13 +210,12 @@
 				FF76710C24100BE8000E4051 /* Fonts */,
 				FF3AA5CB2414D3FD006ED2AC /* Dialogs */,
 				E5F3E9D2239FDA9A003D9B71 /* Main.storyboard */,
+				FFD093DB244F1E4A0010852B /* Assets.xcassets */,
 				E5F3E9CE239FDA9A003D9B71 /* AppDelegate.swift */,
-				E5F3E9D5239FDA9F003D9B71 /* Assets.xcassets */,
 				E5F3E9D7239FDA9F003D9B71 /* LaunchScreen.storyboard */,
 				E5F3E9DA239FDA9F003D9B71 /* Info.plist */,
 				E56DD61123A9335C0020FB86 /* NSDateExtension.swift */,
 				FF12959423E1E1C1002047E8 /* GoogleService-Info.plist */,
-				FF6AA88B2406D93700E3B42A /* TableViewCell.swift */,
 			);
 			path = calendar184;
 			sourceTree = "<group>";
@@ -258,6 +285,8 @@
 				FF3AA5D024156310006ED2AC /* RegisterViewController.swift */,
 				FF3AA5D224156332006ED2AC /* LoginConViewController.swift */,
 				FF5C6243241952E9003E5F0D /* SettingViewController.swift */,
+				FFAB8027244A2ACC00EDF080 /* CreateNoteViewController.swift */,
+				FFAB8030244A863500EDF080 /* MyEventViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +297,32 @@
 				FF76710E24100C59000E4051 /* JS-Chawlewhieng.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FFAB8029244A480700EDF080 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FF6AA88B2406D93700E3B42A /* TableViewCell.swift */,
+				FFAB802E244A5AEE00EDF080 /* mapTableViewCell.swift */,
+				FFAB8032244A86F200EDF080 /* myEventTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FFD093DD244F59F30010852B /* Daliy */ = {
+			isa = PBXGroup;
+			children = (
+				FFD093DE244F5A1E0010852B /* DaliyViewController.swift */,
+				FFD093E0244F5BAA0010852B /* Part1Cell.swift */,
+				FFD093E2244F5BCD0010852B /* Part1Cell.xib */,
+				FFD093E4244F64450010852B /* Part2Cell.xib */,
+				FFD093E6244F64590010852B /* Part2Cell.swift */,
+				FFD093E8244F6F240010852B /* Part2twoCell.swift */,
+				FFD093E9244F6F240010852B /* Part2twoCell.xib */,
+				FFD093EC244F71C50010852B /* Part3Cell.swift */,
+				FFD093ED244F71C50010852B /* Part3Cell.xib */,
+			);
+			path = Daliy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,11 +436,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD093E5244F64450010852B /* Part2Cell.xib in Resources */,
+				FFD093E3244F5BCD0010852B /* Part1Cell.xib in Resources */,
+				FFD093EF244F71C50010852B /* Part3Cell.xib in Resources */,
 				E5F3E9D9239FDA9F003D9B71 /* LaunchScreen.storyboard in Resources */,
 				FF12959523E1E1C1002047E8 /* GoogleService-Info.plist in Resources */,
-				E5F3E9D6239FDA9F003D9B71 /* Assets.xcassets in Resources */,
+				FFD093EB244F6F240010852B /* Part2twoCell.xib in Resources */,
 				FF5C624624195AD7003E5F0D /* JS-Chawlewhieng.ttf in Resources */,
 				E5F3E9D4239FDA9A003D9B71 /* Main.storyboard in Resources */,
+				FFD093DC244F1E4B0010852B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,11 +606,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD093EE244F71C50010852B /* Part3Cell.swift in Sources */,
 				FF103B0A23AA9F2A00D4FFC9 /* modelClass.swift in Sources */,
+				FFD093E1244F5BAA0010852B /* Part1Cell.swift in Sources */,
+				FFD093EA244F6F240010852B /* Part2twoCell.swift in Sources */,
 				FF54C70E240A7888009B5300 /* LoginViewController.swift in Sources */,
 				FF12959D23E30266002047E8 /* GooglePlace.swift in Sources */,
 				FF3AA5D324156332006ED2AC /* LoginConViewController.swift in Sources */,
+				FFD093E7244F64590010852B /* Part2Cell.swift in Sources */,
 				E56DD61223A9335C0020FB86 /* NSDateExtension.swift in Sources */,
+				FFAB8033244A86F200EDF080 /* myEventTableViewCell.swift in Sources */,
+				FFAB802F244A5AEE00EDF080 /* mapTableViewCell.swift in Sources */,
 				FF6AA88C2406D93700E3B42A /* TableViewCell.swift in Sources */,
 				E5F3E9D1239FDA9A003D9B71 /* ViewController.swift in Sources */,
 				FF3AA5CD2414D418006ED2AC /* Dialog.swift in Sources */,
@@ -559,12 +624,15 @@
 				FF3AA5CF2414F214006ED2AC /* Notifications.swift in Sources */,
 				FF7B3E442414034200978E96 /* util.swift in Sources */,
 				FF12959723E1E2A8002047E8 /* DataViewController.swift in Sources */,
+				FFD093DF244F5A1E0010852B /* DaliyViewController.swift in Sources */,
 				FF12959F23E30512002047E8 /* GoogleDataProvider.swift in Sources */,
 				E5F3E9CF239FDA9A003D9B71 /* AppDelegate.swift in Sources */,
 				FF3AA5D124156310006ED2AC /* RegisterViewController.swift in Sources */,
 				FF12959B23E301B7002047E8 /* PlaceMarker.swift in Sources */,
 				FF5C6244241952E9003E5F0D /* SettingViewController.swift in Sources */,
 				FF45C93D23E0BDC2003E87B8 /* DayViewController.swift in Sources */,
+				FFAB8031244A863500EDF080 /* MyEventViewController.swift in Sources */,
+				FFAB8028244A2ACC00EDF080 /* CreateNoteViewController.swift in Sources */,
 				FF12959923E2F021002047E8 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

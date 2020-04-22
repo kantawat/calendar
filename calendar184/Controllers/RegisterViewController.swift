@@ -21,7 +21,7 @@ class RegisterViewController: UIViewController {
                    "email": emailtxt.text!,
                    "password": passtxt.text!]
         
-        ref.child("users").child("\(userUid)/profile").setValue(obj)
+        ref.child("users").child("\(emailtxt.text!)/profile").setValue(obj)
         self.performSegue(withIdentifier: "signuplogin",sender: self)
     }
     

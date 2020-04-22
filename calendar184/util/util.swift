@@ -7,6 +7,18 @@ import EventKit
 let screenWidth = UIScreen.main.bounds.size.width
 let screenHeight = UIScreen.main.bounds.size.height
 
+func getCalendar() -> EKCalendar?{
+    let eventStore = EKEventStore()
+        let calendars = eventStore.calendars(for: .event)
+        
+        for calendar in calendars {
+            if calendar.title == ChineseCalendar {
+               return calendar
+            }
+        }
+        return nil
+}
+
 func getEventDay(date:NSDate) -> String{
     var str = ""
     let eventStore = EKEventStore()
@@ -92,6 +104,8 @@ func getDetailDay(date: NSDate) -> [String]{
     
     strlist.append(notLike1.nameThai)
     strlist.append(notLike2.nameThai)
+    strlist.append(notLike1.nameEng)
+    strlist.append(notLike2.nameEng)
     strlist.append(goodOrBadList[posgoodbad].name)
     strlist.append(goodOrBadList[posgoodbad].type)
     return strlist
