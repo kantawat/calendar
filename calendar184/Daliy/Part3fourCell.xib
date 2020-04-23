@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="JS-Chawlewhieng.ttf">
+            <string>JSChawlewhieng</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cll-C2-gi1" customClass="Part3fourCell" customModule="calendar184" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="630"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cll-C2-gi1" id="kiF-Qx-CWB">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="630"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_part_3" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-Xx-TEP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="630"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A4g-za-KXJ">
+                        <rect key="frame" x="53" y="86" width="268" height="271"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="จัดเป็นจำนวน 3 หรือ 5 ที่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcf-Rr-iTe">
+                                <rect key="frame" x="0.0" y="27" width="117" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.96185300529999995" blue="0.39342347840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ผลไม้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93g-kG-ZmF">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ส้ม" translatesAutoresizingMaskIntoConstraints="NO" id="gqS-qB-Gel">
+                                <rect key="frame" x="35" y="81" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="องุ่น" translatesAutoresizingMaskIntoConstraints="NO" id="aRm-v3-7L1">
+                                <rect key="frame" x="188" y="145" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="สับปะรด" translatesAutoresizingMaskIntoConstraints="NO" id="cHQ-u2-hm2">
+                                <rect key="frame" x="0.0" y="145" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="กล้วย" translatesAutoresizingMaskIntoConstraints="NO" id="WiF-d8-cVa">
+                                <rect key="frame" x="154" y="81" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="แก้วมังกร" translatesAutoresizingMaskIntoConstraints="NO" id="hcF-y8-78p">
+                                <rect key="frame" x="94" y="206" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไหว้เฉพาะวันพระ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1G-ti-xZk">
+                        <rect key="frame" x="135" y="34" width="105" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oM-MT-caW">
+                        <rect key="frame" x="53" y="393" width="268" height="115"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เครื่องดื่ม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdj-0X-yrD">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ไก่" translatesAutoresizingMaskIntoConstraints="NO" id="gQy-rJ-ueK">
+                                <rect key="frame" x="35" y="50" width="80" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="rXi-mZ-Kjn"/>
+            <connections>
+                <outlet property="img1" destination="gqS-qB-Gel" id="JZC-Zm-LmY"/>
+                <outlet property="img2" destination="WiF-d8-cVa" id="1VU-N5-4kA"/>
+                <outlet property="img3" destination="cHQ-u2-hm2" id="153-IS-50Y"/>
+                <outlet property="img4" destination="aRm-v3-7L1" id="vSG-WO-e5i"/>
+                <outlet property="img5" destination="hcF-y8-78p" id="FQI-Bm-GUp"/>
+                <outlet property="img6" destination="gQy-rJ-ueK" id="3mJ-ZB-eUf"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="82.366071428571431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bg_part_3" width="385" height="817"/>
+        <image name="กล้วย" width="96" height="60"/>
+        <image name="สับปะรด" width="97" height="55"/>
+        <image name="ส้ม" width="97" height="57"/>
+        <image name="องุ่น" width="96" height="62"/>
+        <image name="แก้วมังกร" width="97" height="61"/>
+        <image name="ไก่" width="96" height="59"/>
+    </resources>
+</document>

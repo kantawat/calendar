@@ -49,6 +49,13 @@
 		FFD093EB244F6F240010852B /* Part2twoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD093E9244F6F240010852B /* Part2twoCell.xib */; };
 		FFD093EE244F71C50010852B /* Part3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD093EC244F71C50010852B /* Part3Cell.swift */; };
 		FFD093EF244F71C50010852B /* Part3Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD093ED244F71C50010852B /* Part3Cell.xib */; };
+		FFD3BCA824507CEC00CE0959 /* Part3twoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3BCA624507CEC00CE0959 /* Part3twoCell.swift */; };
+		FFD3BCA924507CEC00CE0959 /* Part3twoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD3BCA724507CEC00CE0959 /* Part3twoCell.xib */; };
+		FFD3BCAC24507E4500CE0959 /* Part3threeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3BCAA24507E4500CE0959 /* Part3threeCell.swift */; };
+		FFD3BCAD24507E4500CE0959 /* Part3threeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD3BCAB24507E4500CE0959 /* Part3threeCell.xib */; };
+		FFD3BCB024507EDC00CE0959 /* Part3fourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3BCAE24507EDC00CE0959 /* Part3fourCell.swift */; };
+		FFD3BCB124507EDC00CE0959 /* Part3fourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD3BCAF24507EDC00CE0959 /* Part3fourCell.xib */; };
+		FFD3BCB32450936C00CE0959 /* popupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3BCB22450936C00CE0959 /* popupDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +130,13 @@
 		FFD093E9244F6F240010852B /* Part2twoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part2twoCell.xib; sourceTree = "<group>"; };
 		FFD093EC244F71C50010852B /* Part3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3Cell.swift; sourceTree = "<group>"; };
 		FFD093ED244F71C50010852B /* Part3Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part3Cell.xib; sourceTree = "<group>"; };
+		FFD3BCA624507CEC00CE0959 /* Part3twoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3twoCell.swift; sourceTree = "<group>"; };
+		FFD3BCA724507CEC00CE0959 /* Part3twoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part3twoCell.xib; sourceTree = "<group>"; };
+		FFD3BCAA24507E4500CE0959 /* Part3threeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3threeCell.swift; sourceTree = "<group>"; };
+		FFD3BCAB24507E4500CE0959 /* Part3threeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part3threeCell.xib; sourceTree = "<group>"; };
+		FFD3BCAE24507EDC00CE0959 /* Part3fourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3fourCell.swift; sourceTree = "<group>"; };
+		FFD3BCAF24507EDC00CE0959 /* Part3fourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part3fourCell.xib; sourceTree = "<group>"; };
+		FFD3BCB22450936C00CE0959 /* popupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +335,13 @@
 				FFD093E9244F6F240010852B /* Part2twoCell.xib */,
 				FFD093EC244F71C50010852B /* Part3Cell.swift */,
 				FFD093ED244F71C50010852B /* Part3Cell.xib */,
+				FFD3BCA624507CEC00CE0959 /* Part3twoCell.swift */,
+				FFD3BCA724507CEC00CE0959 /* Part3twoCell.xib */,
+				FFD3BCAA24507E4500CE0959 /* Part3threeCell.swift */,
+				FFD3BCAB24507E4500CE0959 /* Part3threeCell.xib */,
+				FFD3BCAE24507EDC00CE0959 /* Part3fourCell.swift */,
+				FFD3BCAF24507EDC00CE0959 /* Part3fourCell.xib */,
+				FFD3BCB22450936C00CE0959 /* popupDetailViewController.swift */,
 			);
 			path = Daliy;
 			sourceTree = "<group>";
@@ -441,7 +462,10 @@
 				FFD093EF244F71C50010852B /* Part3Cell.xib in Resources */,
 				E5F3E9D9239FDA9F003D9B71 /* LaunchScreen.storyboard in Resources */,
 				FF12959523E1E1C1002047E8 /* GoogleService-Info.plist in Resources */,
+				FFD3BCA924507CEC00CE0959 /* Part3twoCell.xib in Resources */,
 				FFD093EB244F6F240010852B /* Part2twoCell.xib in Resources */,
+				FFD3BCAD24507E4500CE0959 /* Part3threeCell.xib in Resources */,
+				FFD3BCB124507EDC00CE0959 /* Part3fourCell.xib in Resources */,
 				FF5C624624195AD7003E5F0D /* JS-Chawlewhieng.ttf in Resources */,
 				E5F3E9D4239FDA9A003D9B71 /* Main.storyboard in Resources */,
 				FFD093DC244F1E4B0010852B /* Assets.xcassets in Resources */,
@@ -606,11 +630,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD3BCB32450936C00CE0959 /* popupDetailViewController.swift in Sources */,
 				FFD093EE244F71C50010852B /* Part3Cell.swift in Sources */,
 				FF103B0A23AA9F2A00D4FFC9 /* modelClass.swift in Sources */,
 				FFD093E1244F5BAA0010852B /* Part1Cell.swift in Sources */,
 				FFD093EA244F6F240010852B /* Part2twoCell.swift in Sources */,
 				FF54C70E240A7888009B5300 /* LoginViewController.swift in Sources */,
+				FFD3BCB024507EDC00CE0959 /* Part3fourCell.swift in Sources */,
+				FFD3BCAC24507E4500CE0959 /* Part3threeCell.swift in Sources */,
 				FF12959D23E30266002047E8 /* GooglePlace.swift in Sources */,
 				FF3AA5D324156332006ED2AC /* LoginConViewController.swift in Sources */,
 				FFD093E7244F64590010852B /* Part2Cell.swift in Sources */,
@@ -622,6 +649,7 @@
 				FF3AA5CD2414D418006ED2AC /* Dialog.swift in Sources */,
 				FF6AA8882406D07900E3B42A /* ListEventViewController.swift in Sources */,
 				FF3AA5CF2414F214006ED2AC /* Notifications.swift in Sources */,
+				FFD3BCA824507CEC00CE0959 /* Part3twoCell.swift in Sources */,
 				FF7B3E442414034200978E96 /* util.swift in Sources */,
 				FF12959723E1E2A8002047E8 /* DataViewController.swift in Sources */,
 				FFD093DF244F5A1E0010852B /* DaliyViewController.swift in Sources */,

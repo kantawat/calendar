@@ -1,19 +1,11 @@
-//
-//  Part3Cell.swift
-//  calendar184
-//
-//  Created by Yuan Kan on 22/4/20.
-//  Copyright © 2020 kantawat. All rights reserved.
-//
 
 import UIKit
 
-protocol Part3CellDelegate: class {
-    func  btnBegItem()
-}
+//protocol Part3twoCellDelegate: class {
+//    func  btnBegItem(select: String)
+//}
+class Part3twoCell: UITableViewCell {
 
-class Part3Cell: UITableViewCell {
-    
     @IBOutlet weak var img1: UIImageView!
     @IBOutlet weak var img2: UIImageView!
     @IBOutlet weak var img3: UIImageView!
@@ -43,11 +35,9 @@ class Part3Cell: UITableViewCell {
     var listImg = [UIImageView]()
     
     weak var delegate: Part3CellDelegate?
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-      listImg = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22]
+                    listImg = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23]
                
                 for x in begList[1].details{
         //            print(" \(x.name)")
@@ -86,4 +76,3 @@ class Part3Cell: UITableViewCell {
             }
             
         }
-

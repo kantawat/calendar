@@ -10,8 +10,11 @@ var initDate = "05-02-2019"
 var userUid = ""
 var userFullname = ""
 var userPic = "https://www.matichon.co.th/wp-content/uploads/2019/03/Pic-Little-Wild_190308_0021.jpg"
+var dayChiese = dayChinsesShow(date: NSDate(), day:"",month:"",year:"",thaiyear:"")
 var searchMap = ""
 var initDay =  NSDate()
+var itemselectname = ""
+var itemselectmeaning = ""
 var ChineseCalendar = "ChineseCalendar" //ChineseCalendar
 var spacialDayList = [spacialDayFire]()
 var chineseCalendarList = [chineseCalendarFire]()
@@ -42,7 +45,7 @@ class fullDay : NSObject {
         self.month = Int(date.toString(dateFormat: "MM"))!
         self.year = Int(date.toString(dateFormat: "yyyy"))! + 543
         self.fulldayStr = "วัน\(arrWeekDay[weekDay-1]) ที่ \(day) \(arrMonth[month-1]) \(year)"
-        self.sub1dayStr = "วัน\(arrWeekDay[weekDay-1]) ที่ \(day)"
+        self.sub1dayStr = "วันที่\(day) \(arrMonth[month-1]) \(year)"
         self.sub2dayStr = "\(arrMonth[month-1]) \(year)"
     }
     
@@ -64,19 +67,25 @@ class dayChinsesShow : NSObject {
     var goodbad:String = ""
     var goodbadtype:String = ""
     var spacials = [spacialDayFire]()
+    var arrbeg = [Int]()
     init(date: NSDate , day:String,month:String,year:String,thaiyear:String) {
         self.date = date
         self.day = day
         self.month = month
         self.year = year
-        self.thaiyear = thaiyear
+        if(thaiyear.count > 0){
+            self.thaiyear = String(thaiyear.suffix(thaiyear.count-1))
+        }else{
+            self.thaiyear = thaiyear
+        }
+        
         self.fulldayStr = fullDay(date: date).fulldayStr
         self.sub1dayStr = fullDay(date: date).sub1dayStr
         self.sub2dayStr = fullDay(date: date).sub2dayStr
         
-        var moredetail = getDetailDay(date: date)
-        self.notlike1 = moredetail[0]
-        self.notlike2 = moredetail[1]
+        let moredetail = getDetailDay(date: date)
+        self.notlike1 = String(moredetail[0].suffix(moredetail[0].count-1))
+        self.notlike2 = String(moredetail[1].suffix(moredetail[1].count-1))
         self.notlike1eng = moredetail[2]
         self.notlike2eng = moredetail[3]
         self.goodbad = moredetail[4]
@@ -85,6 +94,17 @@ class dayChinsesShow : NSObject {
         self.spacials = spacialDayList.filter {
             (($0 ).monthChinese == Int(month)) && (($0 ).dayChinese == Int(day))
         }
+        var beg = [Int]()
+        for x in self.spacials {
+
+            beg += x.detail
+        }
+        var beg5 = Array(Set(beg)).sorted()
+        if(beg5.count > 4){
+            beg5.remove(at: 4)
+        }
+        self.arrbeg = beg5
+        
     }
     
 }

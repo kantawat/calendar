@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xOD-2e-2Wy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G91-RO-MTo">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -351,18 +351,26 @@
             </objects>
             <point key="canvasLocation" x="2086" y="-3063"/>
         </scene>
-        <!--Day View Controller-->
+        <!--Daliy View Controller-->
         <scene sceneID="ONq-1V-cEi">
             <objects>
-                <viewController id="L5n-i0-W4x" customClass="DayViewController" customModule="calendar184" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L5n-i0-W4x" customClass="DaliyViewController" customModule="calendar184" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="Fwd-DO-Bah">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="reo-eN-xuC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wsJ-TO-eud"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="tableView" destination="reo-eN-xuC" id="wSJ-Ym-5Oy"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="calendarView" id="qFn-yq-St1"/>
                         <segue destination="B9E-lr-D0R" kind="presentation" identifier="tomap" id="Zx5-RX-3Gh"/>
                         <segue destination="ehP-Xq-QiP" kind="presentation" identifier="caltomyevent" id="D6F-mz-4n4"/>
@@ -400,6 +408,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUq-Wq-boW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1484" y="-1462.3152709359606"/>
+        </scene>
+        <!--Popup Detail View Controller-->
+        <scene sceneID="vme-cF-U86">
+            <objects>
+                <viewController storyboardIdentifier="alert" id="up5-CL-4mx" customClass="popupDetailViewController" customModule="calendar184" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PpE-wO-bkn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5L-EL-3FJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67c-kb-KMA">
+                                <rect key="frame" x="42" y="199" width="290" height="481"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popupbg" translatesAutoresizingMaskIntoConstraints="NO" id="85O-iT-awW">
+                                        <rect key="frame" x="0.0" y="23" width="270" height="438"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYY-zt-uxe">
+                                        <rect key="frame" x="234" y="0.0" width="55" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="closebt"/>
+                                        <connections>
+                                            <action selector="onClose:" destination="up5-CL-4mx" eventType="touchUpInside" id="e6G-xg-a7S"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ข้าว" translatesAutoresizingMaskIntoConstraints="NO" id="1Tu-ln-Tdd">
+                                        <rect key="frame" x="88" y="96" width="94" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ข้าว" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHh-Rb-wHc">
+                                        <rect key="frame" x="92" y="32" width="86" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="43"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ความหมาย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4S-Sj-9sl">
+                                        <rect key="frame" x="62" y="188" width="146" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ความหมาย" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIa-j4-h0Y">
+                                        <rect key="frame" x="32" y="252" width="208" height="147"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="JSChawlewhieng" family="JS Chawlewhieng" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Psn-I9-HU0">
+                                        <rect key="frame" x="91" y="407" width="87" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="mapbt"/>
+                                        <connections>
+                                            <action selector="onMap:" destination="up5-CL-4mx" eventType="touchUpInside" id="doD-DM-eOJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8W5-fW-NFk"/>
+                    </view>
+                    <connections>
+                        <outlet property="img" destination="1Tu-ln-Tdd" id="yFW-zr-CHn"/>
+                        <outlet property="labelmeaning" destination="vIa-j4-h0Y" id="WGD-tc-I3e"/>
+                        <outlet property="labelname" destination="NHh-Rb-wHc" id="L2L-3R-Yuy"/>
+                        <segue destination="B9E-lr-D0R" kind="presentation" identifier="popuptomap" id="FJ0-CM-axu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27s-xF-jMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1962.4000000000001" y="-754.43349753694588"/>
         </scene>
         <!--Daliy View Controller-->
         <scene sceneID="BiF-kv-cJB">
@@ -502,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzX-fP-EgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2743.1999999999998" y="-366.50246305418722"/>
+            <point key="canvasLocation" x="-4522" y="-350"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="vGY-1h-wOy">
@@ -1102,24 +1190,29 @@
         <image name="bglogin2" width="375" height="812"/>
         <image name="btnpink" width="221" height="54"/>
         <image name="calendarbg" width="375" height="812"/>
+        <image name="closebt" width="55" height="55"/>
         <image name="createbg" width="375" height="812"/>
         <image name="createbt" width="150" height="39"/>
         <image name="fbbtn" width="334" height="53"/>
         <image name="listbg" width="375" height="812"/>
         <image name="logo" width="214" height="213"/>
         <image name="logoutbtn" width="221" height="54"/>
+        <image name="mapbt" width="184" height="57"/>
         <image name="nearshow" width="198" height="49"/>
         <image name="notiicon" width="56" height="56"/>
+        <image name="popupbg" width="353" height="482"/>
         <image name="prayday1" width="816" height="1798"/>
         <image name="seenote" width="130" height="129"/>
         <image name="settingbg" width="375" height="812"/>
         <image name="signup" width="285" height="48"/>
         <image name="spacescreen" width="2344" height="5076"/>
         <image name="spaciallist" width="49" height="49"/>
+        <image name="ข้าว" width="97" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="C8v-Au-g8G"/>
-        <segue reference="g60-Pj-eLg"/>
-        <segue reference="qFn-yq-St1"/>
+        <segue reference="FJ0-CM-axu"/>
+        <segue reference="XqT-Fw-H1N"/>
+        <segue reference="dzc-nc-4i5"/>
     </inferredMetricsTieBreakers>
 </document>

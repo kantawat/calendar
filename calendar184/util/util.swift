@@ -111,4 +111,25 @@ func getDetailDay(date: NSDate) -> [String]{
     return strlist
 }
 
+func getChineseDay() -> dayChinsesShow {
+    let calendar = Calendar.current
+    let date1 = calendar.startOfDay(for: initDate.toDateTime() as Date)
+    let date2 = calendar.startOfDay(for: initDay as Date)
 
+    let components = calendar.dateComponents([.day], from: date1, to: date2)
+    var diffDay = components.day! + 1
+    for year in chineseCalendarList{
+        for i  in year.detailMonths{
+            if(diffDay - i.amountDay <= 0 ){
+                return dayChinsesShow(date: initDay,
+                                           day: String(diffDay),
+                                           month: String(i.nameMonth),
+                                           year: String(year.nameChineseYear),
+                                           thaiyear:String(year.nameThaiYear))
+            }else{
+                diffDay = (diffDay - i.amountDay)
+            }
+        }
+    }
+    return dayChinsesShow(date: NSDate(), day:"",month:"",year:"",thaiyear:"")
+}

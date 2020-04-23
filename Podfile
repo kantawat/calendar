@@ -19,6 +19,7 @@ target 'calendar184' do
     pod 'FacebookLogin'
     pod 'FacebookShare'
     pod 'SCLAlertView'
+    pod 'EzPopup'
     
   target 'calendar184Tests' do
     inherit! :search_paths
